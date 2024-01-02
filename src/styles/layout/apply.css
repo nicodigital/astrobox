@@ -1,0 +1,8 @@
+.button {
+  @apply bg-indigo-500 text-body rounded-lg px-3 py-2 hover:bg-indigo-400;
+}
+
+
+.mod {
+  @apply bg-neutral-800 text-white p-2 rounded-lg flex items-center justify-center;
+}

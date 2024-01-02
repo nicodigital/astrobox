@@ -1,0 +1,36 @@
+---
+import Layout from "../layout/Layout.astro";
+import Cards from "../layout/Cards.astro";
+import Grid from "../components/Grid.astro";
+
+/* Accordion */
+import Accordion from "../components/Accordion.astro"
+import getAccData from '../data/accordion.json'
+const accData = Object.values(getAccData);
+
+/* Slider */
+import Slider from "../components/Slider.astro";
+import getSlides from "../data/slides.json"
+const Slides = Object.values(getSlides);
+
+---
+<Layout Title="The best Landing">
+
+  <Grid />
+
+  <div class="my-10">
+    <Slider slides={Slides}  />
+  </div>
+
+  <Cards/>
+
+  <div class="container row py-10">
+    <div class="col-[1/13] md:col-[1/7]">
+      <Accordion content={accData} />
+    </div>
+    <div class="col-[1/13] md:col-[7/13]">
+      <Accordion content={accData} />
+    </div>
+  </div>
+
+</Layout>

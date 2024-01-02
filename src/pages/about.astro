@@ -1,0 +1,22 @@
+---
+import Layout from "../layout/Layout.astro";
+import { DATA } from '../data/about'
+
+---
+
+<Layout Title="The best Landing">
+    <div class="container min-h-[50vh]">
+        <h1 class="txt-big ">
+            About
+        </h1>
+        {
+            DATA.map( post =>(
+                <article>
+                    <h3>
+                        {post.title}
+                    </h3>
+                </article>
+            ))
+        }
+    </div>
+</Layout>

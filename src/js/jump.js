@@ -1,0 +1,8 @@
+/**
+ * Minified by jsDelivr using UglifyJS v3.3.16.
+ * Original file: /npm/jump.js@1.0.2/dist/jump.js
+ * 
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+!function(o,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):o.Jump=t()}(this,function(){"use strict";var o=function(o,t,e,n){return(o/=n/2)<1?e/2*o*o+t:-e/2*(--o*(o-2)-1)+t},t="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};return function(){var e=void 0,n=void 0,i=void 0,r=void 0,u=void 0,d=void 0,c=void 0,f=void 0,a=void 0,s=void 0,l=void 0,y=void 0;function m(o){return o.getBoundingClientRect().top+n}function v(o){a||(a=o),l=u(s=o-a,n,c,f),window.scrollTo(0,l),s<f?window.requestAnimationFrame(v):(window.scrollTo(0,n+c),e&&d&&(e.setAttribute("tabindex","-1"),e.focus()),"function"==typeof y&&y(),a=!1)}return function(a){var s=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{};switch(f=s.duration||1e3,r=s.offset||0,y=s.callback,u=s.easing||o,d=s.a11y||!1,n=window.scrollY||window.pageYOffset,void 0===a?"undefined":t(a)){case"number":e=void 0,d=!1,i=n+a;break;case"object":i=m(e=a);break;case"string":e=document.querySelector(a),i=m(e)}switch(c=i-n+r,t(s.duration)){case"number":f=s.duration;break;case"function":f=s.duration(c)}window.requestAnimationFrame(v)}}()});
+//# sourceMappingURL=/sm/0348370d290f6d1e961d3011fe959faadaa06418e952f44f9e24dbdf08ebd485.map

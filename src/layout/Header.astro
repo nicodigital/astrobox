@@ -1,0 +1,25 @@
+---
+import Brand from "../components/Brand.astro";
+import Burger from "../components/Burger.astro";
+import Menu from "../components/Menu.astro";
+
+---
+<header class="container row py-4" >
+    <div class="col-span-2 sm:col-span-3 md:col-span-3">
+        <Brand logo="/img/logos/logo.svg" alt="Gridbox" ></Brand>
+    </div>
+    <div class="col-span-2 sm:col-span-3 md:col-[7/10]">
+
+        <Menu items={
+            [
+                ['Home','/'],
+                ['About','/about'],
+                ['Services','#cards'],
+                ['Contact','/contact']
+            ]
+        } />
+
+        <Burger/>
+        
+    </div>
+</header>
