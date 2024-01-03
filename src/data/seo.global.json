@@ -1,0 +1,12 @@
+{
+  "title": "AstroBox",
+  "description": "My musings about the Astro framework",
+  "author": {
+    "name" : "I+D",
+    "url" : "https://id.net.uy"
+  },
+  "image": {
+    "src": "/img/600x400.jpg",
+    "alt": "AstroBox"
+  }
+}

@@ -17,7 +17,7 @@ const { items } = Astro.props;
             py-6
             transition-transform
             duration-500
-            z-[9999999]
+            z-[99]
 
             xg:relative 
             xg:w-auto
@@ -59,7 +59,7 @@ const { items } = Astro.props;
 <nav>
     {
         items.map( item =>(
-        <a href={ item[1] }  >
+        <a href={ item[1] } class={ item[2] }  >
             { item[0] }
         </a>
         ) )

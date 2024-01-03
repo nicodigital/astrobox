@@ -1,0 +1,189 @@
+---
+const { name, show, type } = Astro.props;
+---
+
+<style>
+  .modal {
+    @apply fixed
+            w-full
+            h-full
+            top-0
+            left-0
+            flex
+            items-center
+            justify-center
+            bg-black/80
+            z-[999]
+            backdrop-blur-sm
+            translate-y-full
+            transition-transform
+            duration-500;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    * {
+      @apply text-white;
+    }
+
+    &-box {
+      @apply relative
+            flex
+            items-center
+            justify-center
+            w-[50%]
+            min-h-[50vh]
+            border
+          border-white;
+    }
+
+    .close {
+      @apply absolute
+            top-2
+            right-2
+            size-4
+            z-[99]
+            cursor-pointer
+            text-white;
+
+      &:before,
+      &:after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 0.3rem;
+        height: 3.2rem;
+        background: currentColor;
+      }
+
+      &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+
+    &[data-show="on"] {
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<div class="modal" data-show={show} data-modal={name} data-type={type} >
+  <div class="close"></div>
+  <div class="modal-box">
+    <slot />
+  </div>
+</div>
+
+<script>
+  function modal() {
+    const html = document.querySelector('html');
+    const modal_links = document.querySelectorAll(".m-link");
+    const btn_close = document.querySelectorAll(".modal > .close");
+    let all_modals = document.querySelectorAll(".modal");
+    // console.log(btn_close);
+
+    function closeModal(html, modal) {
+      html.dataset.modal = "off";
+      modal.dataset.show = "off";
+    }
+
+    // Función para manejar el clic fuera del elemento
+    function handleClickOutside(html, modal, modal_content, modal_type, event) {
+      if (!modal_content.contains(event.target)) {
+        // console.log('Se hizo clic fuera del elemento.');
+
+        if (modal_type == "gallery") {
+          setTimeout(() => gallery_swiper.destroy(), 1000);
+        }
+
+        closeModal(html, modal);
+      }
+    }
+
+    modal_links.forEach((btn_modal) => {
+      btn_modal.onclick = (e) => {
+        e.preventDefault();
+
+        /* open modal */
+        let modal_link = btn_modal.getAttribute('href');
+        let modal = document.querySelector(
+          ".modal[data-modal=" + modal_link + "]"
+        );
+        let modal_content = document.querySelector(
+          ".modal[data-modal=" + modal_link + "] .modal-content"
+        );
+        let modal_type = modal.dataset.type;
+        html.dataset.modal = "on";
+        modal.dataset.show = "on";
+
+        /* video play */
+        if (modal_type == "video") {
+          let modal_video = modal.querySelector("video");
+          modal_video.play();
+          modal.addEventListener("click", (e) => {
+            modal_video.pause();
+          });
+        }
+
+        /* iframe play */
+        if (modal_type == "iframe") {
+          let modal_iframe = modal.querySelector("iframe");
+          let modal_iframe_src = modal_iframe.dataset.src;
+          modal_iframe.setAttribute("src", modal_iframe_src);
+          modal.addEventListener("click", (e) => {
+            modal_video.pause();
+          });
+        }
+      }; // click
+    });
+
+    // Cerrar Modal al clickear fuera del contenido
+    all_modals.forEach((modal) => {
+      modal.addEventListener("click", (event) => {
+        let modal_content = modal.querySelector(".modal-box");
+        let modal_type = modal.dataset.type;
+        handleClickOutside(html, modal, modal_content, modal_type, event);
+      });
+    });
+
+    // Cerrar Modal al clickear el botón cerrar
+    if (btn_close) {
+      btn_close.forEach((close) => {
+        close.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          let this_modal = close.closest(".modal");
+
+          /* Gallery Close */
+          //   let this_gallery = this_modal.querySelector(".swiper-container");
+          // if( check(this_gallery) ){
+          // 	// proyectos_gallery('close');
+          // }
+
+          /* Video  pause */
+          //   let this_video = this_modal.querySelector("video");
+          //   if (check(this_video)) {
+          //     this_video.pause();
+          //   }
+
+          /* iframe  pause */
+          //   let this_iframe = this_modal.querySelector("iframe");
+          //   if (check(this_iframe)) {
+          //     this_iframe.setAttribute("src", "");
+          //   }
+
+          this_modal.dataset.show = "off";
+
+          setTimeout(() => {
+            html.dataset.modal = "off";
+          }, 300);
+        });
+      });
+    } // btn_close
+  }
+
+  modal();
+  //   document.addEventListener("DOMContentLoaded", modal);
+  document.addEventListener("astro:after-swap", modal);
+</script>
