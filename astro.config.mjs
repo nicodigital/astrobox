@@ -7,7 +7,7 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   output: 'hybrid',
   integrations: [tailwind()],
-  base: '/astro',
+  base: '/',
   site: 'https://nicowebsite.com/astro',
   adapter: netlify()
 });
