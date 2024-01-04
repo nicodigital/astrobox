@@ -1,4 +1,3 @@
-
 /* Scroll Data Markers */
 function setScrollPosition() {
   const body = document.querySelector('body');

@@ -4,7 +4,8 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'hybrid',
   integrations: [tailwind()],
-  base: '/',
-  site: 'https://nicowebsite.com',
+  base: '/astro',
+  site: 'https://nicowebsite.com/astro',
 });

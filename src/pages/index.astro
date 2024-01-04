@@ -2,6 +2,7 @@
 import Layout from "../layout/Layout.astro";
 import Cards from "../layout/Cards.astro";
 import Grid from "../components/Grid.astro";
+import Form from '../components/Form.astro'
 
 /* Accordion */
 import Accordion from "../components/Accordion.astro"
@@ -12,7 +13,7 @@ const accData = Object.values(getAccData);
 import Slider from "../components/Slider.astro";
 import getSlides from "../data/slides.json"
 const Slides = Object.values(getSlides);
-
+// export const prerender = false; 
 ---
 <Layout 
     title="The best Landing"
@@ -20,19 +21,32 @@ const Slides = Object.values(getSlides);
     >
   <Grid />
 
-  <div class="my-10">
+  <div class="section">
     <Slider slides={Slides}  />
   </div>
 
-  <Cards/>
+  <div class="container section-b">
+    <Cards/>
+  </div>
+  
+  <div class="container row">
+    <div class="col-[1/13] md:col-[1/6]">
+      <Accordion content={accData} />
+    </div>
+    <div class="col-[1/13] md:col-[7/12]">
+      <Accordion content={accData} />
+    </div>
+  </div>
 
-  <div class="container row py-10">
-    <div class="col-[1/13] md:col-[1/7]">
-      <Accordion content={accData} />
-    </div>
-    <div class="col-[1/13] md:col-[7/13]">
-      <Accordion content={accData} />
-    </div>
+  <div id="contacto" class="container row section">
+      <div class="col-[1/6]">
+        <h2 class="h2">
+          Contacto
+        </h2>
+      </div>
+      <div class="col-[7/12]">
+        <Form/>
+      </div>
   </div>
 
 </Layout>

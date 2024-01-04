@@ -32,16 +32,16 @@ p{
 .h1{
   @apply 
     text-h1 
-    xl:text-[3rem]
-    3xl:text-[3.3rem]
+    xl:text-[4rem]
+    3xl:text-[4.3rem]
     text-balance
 }
 
 .h2{
     @apply 
         text-h2 
-        xl:text-[2.5rem]
-        3xl:text-h2
+        xg:text-[3.3rem]
+        3xl:text-[3.5rem]
         text-balance
 }
 
