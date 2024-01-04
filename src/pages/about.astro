@@ -4,11 +4,19 @@ import { DATA } from '../data/about'
 
 ---
 
-<Layout Title="The best Landing">
-    <div class="container min-h-[50vh]">
-        <h1 class="txt-big mb-5">
-            About
-        </h1>
+<Layout 
+title="Sobre nosotros"
+claim="La mejor página de About"
+>
+    <div class="container row section-b min-h-[75vh]">
+
+        <div class="col-span-6">
+            <h1 class="txt-big mb-5">
+                About
+            </h1>
+        </div>
+
+        <div class="col-span-6">
         {
             DATA.map( post =>(
                 <article>
@@ -18,5 +26,7 @@ import { DATA } from '../data/about'
                 </article>
             ))
         }
+        </div>
+
     </div>
 </Layout>
