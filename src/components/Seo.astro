@@ -1,12 +1,12 @@
 ---
 import seoGlobal from "../data/seo.global.json";
-const { title, description, image, robots } = Astro.props;
+const { title, claim, description, image, robots } = Astro.props;
 const site = import.meta.env.SITE;
 const baseUrl = import.meta.env.BASE_URL;
 
 ---
 <!-- Basic Metas -->
-<title>{title}</title>
+<title>{title} — {claim}</title>
 <meta name="description" content={ description } >
 
 <base href={ baseUrl } target="_self" />

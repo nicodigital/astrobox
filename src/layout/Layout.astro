@@ -9,6 +9,7 @@ import Seo from '../components/Seo.astro'
 
 const { 
   title = "Título de 65 caracteres", 
+  claim = "Frase Coooool!", 
   description = 'Descripción de 150 caracteres' ,
   image,
   robots
@@ -26,7 +27,7 @@ const getForm = Astro.url.searchParams.get('form')! || '';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <Seo {title} {description} {image} {robots} />
+    <Seo {title} {claim} {description} {image} {robots} />
     <meta http-equiv="cleartype" content="on" />
     <meta name="MobileOptimized" content="width" />
     <meta name="HandheldFriendly" content="true" />

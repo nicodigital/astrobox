@@ -97,14 +97,14 @@ if (Astro.request.method === "POST") {
   </div>
 
   <!-- captcha -->
-  <div class="grid grid-cols-2 gap-1">
+  <div class="grid sm:grid-cols-2 gap-1">
     <div class="opacity-50">
       <label for="captcha"> ¿Eres un humano? </label>
       <input type="text" id="captcha" value={captcha} required disabled >
     </div>
     <div>
       <label for="" class="opacity-50"> entonces </label>
-      <input type="text" id="getcaptcha" placeholder="digita aquí el código a la izquierda" required >
+      <input type="text" id="getcaptcha" placeholder="digita aquí el código" required >
       <div class="notify">
           <p>Revisa el código introducido.</p>
       </div>
