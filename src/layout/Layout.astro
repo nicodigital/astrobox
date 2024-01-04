@@ -13,6 +13,11 @@ const {
   image,
   robots
   } = Astro.props;
+
+// Check Thanks
+const getForm = Astro.url.searchParams.get('form')! || '';
+// console.log(getForm);
+
 ---
 
 <html lang="en">
@@ -40,14 +45,24 @@ const {
 
     <Footer />
 
-    
     <Modal name='demo' show='off' type='' >
       <h2 class='h1 text-center'>
         Este es el mejor modal del mundo!
       </h2>
     </Modal>
 
-
+    { getForm && <Modal name='thanks' show='on' type='' >
+      <div class="flex flex-col text-center">
+        <h2 class='h1 text-center mb-4'>
+          Muchas Gracias!
+        </h2>
+        <p>
+          Tu mensaje ha sido enviado correctamente <br>
+          Nos comunicaremos a la brevedad.
+        </p>
+      </div>
+    </Modal> }
+    
 	<script>
 		import '../js/globals'
 	</script>

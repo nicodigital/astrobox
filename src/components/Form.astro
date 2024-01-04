@@ -1,15 +1,11 @@
 ---
 import "../styles/components/forms.css";
-const { name, email, phone, message } = Astro.props;
-
 import { Resend } from "resend";
-const resend = new Resend("re_G9Mhr6fx_Pmf7KYaExFasXXFWzDYXQCbn");
-
 import genCaptcha from "../js/captcha";
-const captcha = genCaptcha();
-
 import sendForm from "../js/sendForm";
 
+const resend = new Resend("re_G9Mhr6fx_Pmf7KYaExFasXXFWzDYXQCbn");
+const captcha = genCaptcha();
 const errors = { username: "", email: "", phone: "" };
 
 if (Astro.request.method === "POST") {

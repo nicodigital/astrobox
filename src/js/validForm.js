@@ -80,7 +80,7 @@ function validForm() {
                     loader.style.display = "none";
 
                     // Redirección
-                    const url = new URL(baseUrl + "/about", window.location.origin);
+                    const url = new URL(baseUrl + "/", window.location.origin);
                     url.searchParams.set("form", "ok");
                     window.location.assign(url.toString());
                 })
