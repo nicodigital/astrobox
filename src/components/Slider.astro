@@ -1,6 +1,7 @@
 ---
 import "swiper/css";
 // const { slides } = Astro.props;
+import Picture from '../components/Picture.astro'
 
 const response = await fetch("https://api.idmedia.uy/graphql",{
     method: "POST",
@@ -33,11 +34,6 @@ const response = await fetch("https://api.idmedia.uy/graphql",{
 const json = await response.json();
 const getSlides  = JSON.stringify(json.data.page.uFilmsDatos.hero.slider);
 const slides =  JSON.parse(getSlides);
-console.log(slides)
-
-// slides.map((slide) => (
-//   console.log(slide)
-// ))
 
 ---
 
@@ -57,7 +53,10 @@ console.log(slides)
     {
       slides.map((slide) => (
         <div class="swiper-slide">
-          <img src={slide.imagen.node.mediaItemUrl} alt="" decoding="async" />
+          <Picture 
+              url={slide.imagen.node.mediaItemUrl} 
+              style="grayscale"
+              />
         </div>
       ))
     }
