@@ -1,13 +1,52 @@
 ---
 import "swiper/css";
-const { slides } = Astro.props;
+// const { slides } = Astro.props;
+
+const response = await fetch("https://api.idmedia.uy/graphql",{
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      query: `
+      query UfilmsSlider {
+        page(id: "548", idType: DATABASE_ID) {
+          uFilmsDatos {
+            hero {
+              slider {
+                imagen {
+                  node {
+                    mediaItemUrl
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      `,
+      variable:{
+
+      },
+    }),
+  }
+);
+
+const json = await response.json();
+const getSlides  = JSON.stringify(json.data.page.uFilmsDatos.hero.slider);
+const slides =  JSON.parse(getSlides);
+console.log(slides)
+
+// slides.map((slide) => (
+//   console.log(slide)
+// ))
+
 ---
+
 <style>
-  h3{
+  h3 {
     @apply font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   }
-  img{
-    @apply h-[75vh] w-full opacity-50 object-cover object-center
+  img {
+    @apply h-[66vh] xg:h-[85vh] w-full object-cover object-center grayscale;
   }
 </style>
 
@@ -18,15 +57,7 @@ const { slides } = Astro.props;
     {
       slides.map((slide) => (
         <div class="swiper-slide">
-          <h3 class="h1">
-            {slide.title}
-          </h3>
-          <img
-            src={slide.img}
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
+          <img src={slide.imagen.node.mediaItemUrl} alt="" decoding="async" />
         </div>
       ))
     }
@@ -61,7 +92,6 @@ const { slides } = Astro.props;
     });
   }
 
-  swiperSlider()
-  document.addEventListener("astro:after-swap", swiperSlider );
-
+  swiperSlider();
+  document.addEventListener("astro:after-swap", swiperSlider);
 </script>
