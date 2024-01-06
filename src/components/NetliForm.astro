@@ -5,7 +5,7 @@ import "../styles/components/forms.css";
 <form
   id="contact-form"
   name="form"
-  action="#"
+  action="/?form=ok"
   method="post"
   accept-charset="utf-8"
   data-netlify-recaptcha="true"
@@ -60,7 +60,7 @@ import "../styles/components/forms.css";
   </div>
 
   <div class="field">
-    <button type="submit" class="btn submit btn-solid-black btn-lg btn-circular">
+    <button type="submit" class="btn submit btn-solid-black btn-lg btn-circular" disabled >
       <span class="flex align-center">
         <span class="loader mr-1"></span>
         <span class="white">Enviar</span>
@@ -71,6 +71,6 @@ import "../styles/components/forms.css";
 </form>
 
 <script>
-  import validForm from '../js/validForm'
-  validForm();
+  import netliValid from '../js/netliValid'
+  netliValid();
 </script>
