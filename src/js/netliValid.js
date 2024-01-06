@@ -1,4 +1,4 @@
-functiot netliValid() {
+function netliValid() {
 
     const form = document.querySelector("form");
     const baseUrl = import.meta.env.BASE_URL;
@@ -62,4 +62,4 @@ functiot netliValid() {
 
 }
 
-export default netliValid;
+export default netliValid
