@@ -7,7 +7,8 @@ import "../styles/components/forms.css";
   action="/?form=ok"
   netlify
   data-netlify-recaptcha="true"
-  method="post" accept-charset="utf-8" 
+  method="post"
+  accept-charset="utf-8"
 >
   <div class="field">
     <input
@@ -45,9 +46,7 @@ import "../styles/components/forms.css";
 
   <div class="field">
     <textarea
-      cols=""
       name="message"
-      rows=""
       placeholder="Mensaje..."
       minlength="16"></textarea>
     <div class="valid-msg">Tu mensaje debe ser de mas de 16 caracteres.</div>
@@ -56,17 +55,20 @@ import "../styles/components/forms.css";
   <div data-netlify-recaptcha="true"></div>
 
   <div class="field">
-    <button type="submit" class="btn submit btn-solid-black btn-lg btn-circular" disabled >
+    <button
+      type="submit"
+      class="btn submit btn-solid-black btn-lg btn-circular"
+      disabled
+    >
       <span class="flex align-center">
         <span class="loader mr-1"></span>
         <span class="white">Enviar</span>
       </span>
     </button>
   </div>
-
 </form>
 
 <script>
-//   import netliValid from '../js/netliValid'
-//   netliValid();
+    import netliValid from '../js/netliValid'
+    netliValid();
 </script>
