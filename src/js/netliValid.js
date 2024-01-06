@@ -44,7 +44,7 @@ function netliValid() {
     }
 
     /* Revisamos el form cada vez que un campo cambia  */
-    contact_form.onchange = () => {
+    form.onchange = () => {
         if (validField(name, nameRegex) && validField(email, emailRegex) && validField(phone, phoneRegex) ) {
             submit.disabled = false;
             notify.classList.remove('active');
