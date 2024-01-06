@@ -5,7 +5,7 @@
     --invalid-color: theme('colors.invalid');
   }
 
-  .form {
+[name="form"] {
 
     @apply w-full;
 
