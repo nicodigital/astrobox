@@ -10,17 +10,14 @@ import "../styles/components/forms.css";
   method="post" 
   accept-charset="utf-8"    
 >
-  <div class="field">
     <input
       type="text"
       name="name"
       placeholder="Nombre y Apellido"
       required
     />
-    <span class="valid-msg"> Coloca tu nombre y Apellido</span>
-  </div>
 
-  <div class="field">
+
     <input
       type="email"
       name="email"
@@ -28,10 +25,7 @@ import "../styles/components/forms.css";
       title="Debe ser un correo valido"
       required
     />
-    <span class="valid-msg"> Coloca un correo valido</span>
-  </div>
 
-  <div class="field">
     <input
       type="tel"
       name="phone"
@@ -40,27 +34,21 @@ import "../styles/components/forms.css";
       minlength="9"
       maxlength="18"
     />
-    <span class="valid-msg"> Coloca un número de teléfono valido</span>
-  </div>
 
-  <div class="field">
     <textarea
       name="message"
       placeholder="Mensaje..."
       minlength="16"></textarea>
     <div class="valid-msg">Tu mensaje debe ser de mas de 16 caracteres.</div>
-  </div>
 
   <div data-netlify-recaptcha="true"></div>
 
-  <div class="field">
     <button type="submit" class="btn submit btn-solid-black btn-lg btn-circular" disabled >
       <span class="flex align-center">
         <span class="loader mr-1"></span>
         <span class="white">Enviar</span>
       </span>
     </button>
-  </div>
 
 </form>
 
