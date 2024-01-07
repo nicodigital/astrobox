@@ -3,7 +3,7 @@ const { items } = Astro.props;
 ---
 <style>
 
-    nav{
+    #menu{
         @apply 
             fixed 
             flex 
@@ -40,13 +40,13 @@ const { items } = Astro.props;
 
     @media ( width <= 992px ){
 
-        nav{
+        #menu{
             transform: translateX(100%);
         }
 
         body.menu-in{
 
-            nav{
+            #menu{
                 transform: translateX(0);
             }
 
@@ -56,7 +56,7 @@ const { items } = Astro.props;
 
 </style>
 
-<nav>
+<nav id="menu">
     {
         items.map( item =>(
         <a href={ item[1] } class={ item[2] }  >
