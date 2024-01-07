@@ -14,7 +14,7 @@ function netliValid() {
     // Regex de campos para validación
     const nameRegex = /^[A-Za-z]+ [A-Za-z]+$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^\+\d{0,3}(?:\s?\d{1,3}){1,4}$|^\d{8,9}$/;
+    const phoneRegex = /^\+\d{0,3}(?:\s?\d{1,3}){1,4}$|^\d{8,10}$/;
 
     // Función para validar campos
     function validField(field, regex) {
