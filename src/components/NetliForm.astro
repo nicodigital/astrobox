@@ -45,16 +45,18 @@ import "../styles/components/forms.css";
   </div>
 
   <div class="field">
-    <textarea
-      name="message"
-      placeholder="Mensaje..."
-      minlength="16"></textarea>
+    <textarea name="message" placeholder="Mensaje..." minlength="16"></textarea>
     <div class="valid-msg">Tu mensaje debe ser de mas de 16 caracteres.</div>
   </div>
 
-  <div data-netlify-recaptcha="true"></div>
+  <div class="notify">
+    <p>Revisa el código introducido.</p>
+  </div>
 
-  <div class="field mt-2">
+  <div class="flex justify-between mt-2">
+    
+    <div data-netlify-recaptcha="true"></div>
+
     <button
       type="submit"
       class="btn submit btn-solid-black btn-lg btn-circular"
@@ -65,10 +67,11 @@ import "../styles/components/forms.css";
         <span class="white">Enviar</span>
       </span>
     </button>
+
   </div>
 </form>
 
 <script>
-    import netliValid from '../js/netliValid'
-    netliValid();
+  import netliValid from "../js/netliValid";
+  netliValid();
 </script>
