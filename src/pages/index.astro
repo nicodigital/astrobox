@@ -1,5 +1,6 @@
 ---
 // export const prerender = false; 
+
 import Layout from "../layout/Layout.astro";
 import Cards from "../layout/Cards.astro";
 import Grid from "../components/Grid.astro";
@@ -15,6 +16,9 @@ import Accordion from "../components/Accordion.astro"
 import getAccData from '../data/accordion.json'
 const accData = Object.values(getAccData);
 
+const News = await Astro.glob("./news/*.md");
+import CardNews from '../components/CardNews.astro'
+console.log(News)
 ---
 <Layout 
     title="AstroBox"
@@ -28,8 +32,16 @@ const accData = Object.values(getAccData);
     <Slider/>
   </div>
 
-  <div class="container section-b">
-    <Cards/>
+  <div class="container section-b grid md:grid-cols-4 gap-2">
+    {
+      News.map( item => (
+        <CardNews 
+          title={item.frontmatter.title}
+          description={item.frontmatter.description}
+          img={item.frontmatter.img}
+        />
+      ))
+    }
   </div>
   
   <div class="container row">
