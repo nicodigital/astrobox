@@ -1,15 +1,16 @@
 ---
 const { film } = Astro.props;
 import Picture from '../components/Picture.astro'
-// console.log(baseUrl)
-
+import slugify from '../js/slugify.js'
+let slug = slugify(film.acfe_flexible_layout_title);
+// console.log(film.acfe_flexible_layout_title)
 ---
-<a href={`/films/${film.acfeFlexibleLayoutTitle}`} class="card bg-neutral-800 text-white px-2 py-3 flex flex-col gap-2 rounded-xl">
-    
-    <Picture url={film.poster.node.mediaItemUrl} />
+<a href={`/films/${slug}`} class="card bg-neutral-800 text-white px-2 py-3 flex flex-col gap-2 rounded-xl">
+
+    <Picture url={film.poster.url} />
 
     <h2 class="h2 font-bold" >
-        {film.acfeFlexibleLayoutTitle}
+        {film.acfe_flexible_layout_title}
     </h2>
 
     <p>
