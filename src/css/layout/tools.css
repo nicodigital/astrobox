@@ -1,0 +1,21 @@
+.section {
+  @apply py-8 sm:py-10 xg:py-12 3xl:py-14;
+
+  &-t{
+    @apply pt-6 sm:pt-8 xg:pt-12 3xl:pt-14;
+  }
+
+  &-b{
+    @apply pb-6 sm:pb-8 xg:pb-12 3xl:pb-14;
+  }
+
+}
+
+.sw-status{
+
+  @apply hidden;
+  &.active{
+    @apply flex;
+  }
+
+}

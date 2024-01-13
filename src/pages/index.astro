@@ -1,37 +1,37 @@
 ---
-// export const prerender = false; 
+// export const prerender = false;
 import Layout from "../layout/Layout.astro";
 import Cards from "../layout/Cards.astro";
 import Grid from "../components/Grid.astro";
 
 /* Slider */
-import Slider from '../components/Slider.astro'
+import Slider from "../components/Slider.astro";
 
 /* Formulario */
-import NetliForm from '../components/NetliForm.astro'
+import NetliForm from "../components/NetliForm.astro";
 
 /* Accordion */
-import Accordion from "../components/Accordion.astro"
-import getAccData from '../data/accordion.json'
+import Accordion from "../components/Accordion.astro";
+import getAccData from "../data/accordion.json";
+import Switcher from "../components/Switcher.astro";
 const accData = Object.values(getAccData);
-
 ---
-<Layout 
-    title="AstroBox"
-    claim="El nuevo framework de maquetación de sitios de I+D"
-    description="El nuevo framework de maquetación de sitios de I+D"
-    >
 
+<Layout
+  title="AstroBox"
+  claim="El nuevo framework de maquetación de sitios de I+D"
+  description="El nuevo framework de maquetación de sitios de I+D"
+>
   <Grid />
 
   <div class="section">
-    <Slider/>
+    <Slider />
   </div>
 
   <div class="container section-b">
-    <Cards/>
+    <Cards />
   </div>
-  
+
   <div class="container row">
     <div class="col-[1/13] md:col-[1/6]">
       <Accordion content={accData} />
@@ -41,15 +41,14 @@ const accData = Object.values(getAccData);
     </div>
   </div>
 
+  <Switcher/>
+   
   <div id="contacto" class="container row section">
-      <div class="col-[1/13] md:col-[1/6]">
-        <h2 class="h2">
-          Contacto
-        </h2>
-      </div>
-      <div class="col-[1/13] md:col-[7/12]">
-        <NetliForm/>
-      </div>
+    <div class="col-[1/13] md:col-[1/6]">
+      <h2 class="h2">Contacto</h2>
+    </div>
+    <div class="col-[1/13] md:col-[7/12]">
+      <NetliForm />
+    </div>
   </div>
-
 </Layout>
