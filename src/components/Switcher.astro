@@ -1,44 +1,80 @@
 ---
 import Card from "../components/Card.astro";
+
+const response = await fetch(
+  "https://api.idmedia.uy/wp-json/wp/v2/pages?slug=ufilms"
+);
+const getFilms = await response.json();
+const films = getFilms[0].acf.films;
+const cats = [];
+
+function getUniqs(array) {
+  return [...new Set(array)];
+}
+
+films.map((film) => {
+  cats.push(film.cat)
+})
+
+const uniqCats = getUniqs(cats)
+
 ---
+
 <style>
-  .sw-button{
-    @apply cursor-pointer ;
+  .sw-button {
+    @apply cursor-pointer;
   }
 </style>
 
 <div class="container row section">
   <div class="col-[1/13] switcher">
     <div class="flex gap-3 py-4">
-      <div class="sw-button" data-switch="content-1">Content 1</div>
-      <div class="sw-button" data-switch="content-2">Content 2</div>
-      <div class="sw-button" data-switch="content-1">Content 3</div>
+      <div class="sw-button" data-switch="*">All</div>
+      {
+        uniqCats.map((cat) => {
+          return <div class="sw-button" data-switch={cat}>
+            {cat}
+          </div>
+        })
+      }
     </div>
 
     <div class="grid grid-cols-3 gap-1">
-      <Card cat="content-1" />
-      <Card cat="content-2" />
-      <Card cat="content-3" />
+      {
+        films.map((film) => (
+          <Card 
+          title={film.acfe_flexible_layout_title} 
+          cat={film.cat} />
+        ))
+      }
     </div>
   </div>
 </div>
 
 <script>
-  
-  const switchers = document.querySelectorAll('.switcher');
+  const switchers = document.querySelectorAll(".switcher");
 
-  switchers.forEach( switcher =>{
+  switchers.forEach((switcher) => {
+    const sw_buttons = switcher.querySelectorAll(".sw-button");
+    const sw_items = switcher.querySelectorAll(".sw-item");
 
-    const sw_buttons = switcher.querySelectorAll('.sw-button');
-    const sw_items = switcher.querySelectorAll('.sw-item');
+    sw_buttons.forEach((btn) => {
+      btn.addEventListener("click", (item) => {
+        let currItem = btn.getAttribute("data-switch");
 
-    sw_buttons.forEach( button =>{
-      button.addEventListener('click', item =>{
-        alert('click');
-      })
-    })
-
-
-  })
-
+        sw_items.forEach((item) => {
+          if (currItem != "*") {
+            if (item.getAttribute("data-switch") == currItem) {
+              item.classList.add("active");
+            } else {
+              item.classList.remove("active");
+            }
+          } else {
+            item.classList.remove("active"); // primero removemos las clase active presente
+            item.classList.add("active");
+          }
+        });
+      });
+    });
+  });
 </script>

@@ -13,6 +13,16 @@ const {
     .card{
         @apply bg-neutral-800 text-white px-2 py-3 flex flex-col gap-2 rounded-xl
     }
+
+    .sw-status{
+        @apply hidden;
+
+            &.active{
+                @apply flex;
+            }
+
+    }
+
 </style>
 
 <a href={url} class={`card sw-item sw-status ${status}`} data-switch={cat} >
@@ -22,5 +32,8 @@ const {
     </h2>
     <p>
         {desc.slice(0,150)}...
+    </p>
+    <p class="small font-bold text-right">
+        {cat}
     </p>
 </a>

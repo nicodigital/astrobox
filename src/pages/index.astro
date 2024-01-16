@@ -25,11 +25,11 @@ const accData = Object.values(getAccData);
   <Grid />
 
   <div class="section">
-    <Slider />
+    <Slider client:load />
   </div>
 
   <div class="container section-b">
-    <Cards />
+    <Cards client:visible />
   </div>
 
   <div class="container row">
@@ -41,7 +41,7 @@ const accData = Object.values(getAccData);
     </div>
   </div>
 
-  <Switcher/>
+  <Switcher client:visible  />
    
   <div id="contacto" class="container row section">
     <div class="col-[1/13] md:col-[1/6]">

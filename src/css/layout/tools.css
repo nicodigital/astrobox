@@ -11,11 +11,3 @@
 
 }
 
-.sw-status{
-
-  @apply hidden;
-  &.active{
-    @apply flex;
-  }
-
-}
