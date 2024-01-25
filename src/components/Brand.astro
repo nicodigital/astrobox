@@ -4,6 +4,6 @@ const { width } = Astro.props;
 
 ---
 
-<a href={baseUrl} class={`${width} block`} >
+<a href={baseUrl} class={`${width} block`} data-astro-prefetch="hover" >
     <img src={`/img/logos/logo.svg`} alt="" loading='lazy' decoding='async' />
 </a>
