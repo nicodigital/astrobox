@@ -5,7 +5,7 @@ import CardFilms from "../components/CardFilms.astro";
 // import getPosts from '../data/posts.json'
 // const posts = Object.values(getPosts);
 
-const response = await fetch('https://api.idmedia.uy/wp-json/wp/v2/pages?slug=ufilms');
+const response = await fetch('http://api.id.net.uy//wp-json/wp/v2/pages?slug=ufilms');
 const getFilms = await response.json();
 const films = getFilms[0].acf.films;
 ---

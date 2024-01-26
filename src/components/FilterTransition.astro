@@ -2,7 +2,7 @@
 import CardFilter from "./CardFilter.astro";
 
 const response = await fetch(
-  "https://api.idmedia.uy/wp-json/wp/v2/pages?slug=ufilms"
+  "http://api.id.net.uy//wp-json/wp/v2/pages?slug=ufilms"
 );
 const getFilms = await response.json();
 const films = getFilms[0].acf.films;
