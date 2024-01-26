@@ -10,7 +10,7 @@ import NetliForm from "../../components/NetliForm.astro";
 // Esta función solo es necesaria en caso de preRendered
 export async function getStaticPaths() {
   const response = await fetch(
-    "https://api.idmedia.uy/wp-json/wp/v2/pages?slug=ufilms"
+    "http://api.id.net.uy/wp-json/wp/v2/pages?slug=ufilms"
   );
 
   const getFilms = await response.json();
@@ -32,7 +32,7 @@ const { film } = Astro.params;
 // console.log(film)
 
 const response = await fetch(
-  "https://api.idmedia.uy/wp-json/wp/v2/pages?slug=ufilms"
+  "http://api.id.net.uy/wp-json/wp/v2/pages?slug=ufilms"
 );
 
 const getFilms = await response.json();
