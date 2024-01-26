@@ -1,10 +1,15 @@
 ---
+import slugify from '../js/slugify.js'
+
 const { 
     title = "Título x defecto", 
-    desc = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, temporibus?",
-    type = 'Categoria',
-    url
+    img     = "https://placehold.co/600x400", 
+    desc    = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, temporibus?",
+    type    = 'Categoria',
 } = Astro.props;
+
+let slug = slugify(title);
+
 ---
 <style>
     .card{
@@ -12,9 +17,9 @@ const {
     }
 </style>
 
-<div class="filter-item" data-type={type} >
-  <a href={url} class="card" >
-      <img class="rounded-xl opacity-30" src='https://placehold.co/600x400' alt='' loading='lazy' decoding='async' />
+<div class="filter-item animate" data-type={type} data-anim="bottom">
+  <a href={`/films/${slug}`} class="card" data-astro-prefetch="hover" >
+      <img class="rounded-xl" src={img} alt='' loading='lazy' decoding='async' />
       <h2 class="h3 font-bold min-h-[9rem]" >
           {title}
       </h2>

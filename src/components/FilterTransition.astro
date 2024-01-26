@@ -49,7 +49,7 @@ const uniqCats = getUniqs(cats);
     <ul class="filter-items grid sm:grid-cols-2 xl:grid-cols-4 gap-2 xl:gap-4">
       {
         films.map((film) => (
-          <CardFilter title={film.acfe_flexible_layout_title} type={film.cat} />
+          <CardFilter title={film.acfe_flexible_layout_title} img={film.poster.url} type={film.cat} />
         ))
       }
     </ul>
