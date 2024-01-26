@@ -1,0 +1,35 @@
+---
+import Picture from '../components/Picture.astro'
+const posts = await Astro.glob("../pages/content/posts/*.md");
+
+// console.log(posts)
+
+// posts.map( post =>{
+//   console.log(post)
+// })
+---
+
+<div class="container row section">
+
+  <div class="col-[1/13]">
+    <h1 class="h1 mb-6 font-bold">Post from Markdown</h1>
+  </div>
+
+  <div class="col-[1/13] grid grid-cols-4 gap-4 xg:gap-8">
+    {
+      posts.map((post) => {
+        let content = post.rawContent().slice(0, 75);
+
+        return (
+          <a href={post.url}>
+            <h3 class="h3 mb-2">{post.frontmatter.title}</h3>
+            <img class="rounded-xl mb-1 grayscale opacity-50" src={post.frontmatter.imgSrc} alt="" lazy="true" decoding="async" >
+            <p class="mb-1">{content}</p>
+            <div>Leer más →</div>
+          </a>
+        );
+      })
+    }
+  </div>
+</div>
+

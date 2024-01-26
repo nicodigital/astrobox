@@ -15,6 +15,9 @@ import Accordion from "../components/Accordion.astro";
 import getAccData from "../data/accordion.json";
 const accData = Object.values(getAccData);
 
+/* Posts */
+import Posts from "../components/Posts.astro";
+
 /* Switcher */
 // import Switcher from "../components/Switcher.astro";
 
@@ -37,6 +40,8 @@ import FilterTransition from "../components/FilterTransition.astro";
   <div class="container section-b">
     <Cards/>
   </div>
+
+  <Posts/>
 
   <div class="container row">
     <div class="col-[1/13] md:col-[1/6]">
