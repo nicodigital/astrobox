@@ -45,3 +45,11 @@ p{
         text-balance
 }
 
+.h3{
+    @apply 
+        text-h3 
+        xg:text-[2.8rem]
+        3xl:text-[3rem]
+        text-balance
+}
+

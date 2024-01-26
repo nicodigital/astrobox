@@ -8,7 +8,8 @@ import icon from "astro-icon";
 export default defineConfig({
   integrations: [tailwind(), icon()],
   output: 'hybrid',
-  // site: 'https://nicowebsite.com/astro',
+  // site: 'http://astro.test/astrobox/dist',
   adapter: netlify(),
-  prefetch: true
+  prefetch: true,
+  // base: './'
 });
