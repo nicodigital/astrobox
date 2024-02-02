@@ -3,6 +3,7 @@
 import Layout from "../layout/Layout.astro";
 import Cards from "../layout/Cards.astro";
 import Grid from "../components/Grid.astro";
+import Icons from "../components/Icons.astro";
 
 /* Slider */
 import Slider from "../components/Slider.astro";
@@ -20,7 +21,6 @@ const accData = Object.values(getAccData);
 
 /* Filter with viewtrasition */
 import FilterTransition from "../components/FilterTransition.astro";
-
 ---
 
 <Layout
@@ -31,25 +31,43 @@ import FilterTransition from "../components/FilterTransition.astro";
   <Grid />
 
   <div class="section">
-    <Slider/>
+    <Slider />
   </div>
 
   <div class="container section-b">
-    <Cards/>
+
+    <div class="row">
+      <div class="xg:col-[1/13] mb-10">
+        <h2 class="h1 font-bold">Cards</h2>
+      </div>
+    </div>
+
+    <Cards />
   </div>
 
-  <div class="container row">
-    <div class="col-[1/13] md:col-[1/6]">
-      <Accordion content={accData} />
+  <div class="container">
+
+    <div class="row">
+      <div class="xg:col-[1/13] mb-10">
+        <h2 class="h1 font-bold">Accordion</h2>
+      </div>
     </div>
-    <div class="col-[1/13] md:col-[7/12]">
-      <Accordion content={accData} />
+
+    <div class="row">
+      <div class="col-[1/13] md:col-[1/6]">
+        <Accordion content={accData} />
+      </div>
+      <div class="col-[1/13] md:col-[7/12]">
+        <Accordion content={accData} />
+      </div>
     </div>
   </div>
+
+  <Icons />
 
   <!-- <Switcher /> -->
-  <FilterTransition/>
-   
+  <FilterTransition />
+
   <div id="contacto" class="container row section">
     <div class="col-[1/13] md:col-[1/6]">
       <h2 class="h2">Contacto</h2>

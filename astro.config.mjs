@@ -14,7 +14,7 @@ export default defineConfig({
   // site: 'https://nicolook.com',
   // site: 'http://localhost:4321',
 
-  // Aqui va el folder, en caso de root /
+  // Aqui va el folder, en caso de root -> /
   // base: '/astro',
   // base: '/',
 
