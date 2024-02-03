@@ -1,45 +1,78 @@
-.accordion {
-  .a-btn {
-    @apply relative cursor-pointer flex items-center justify-between border-t-2 mb-0;
-
-    * {
-      pointer-events: none !important;
-    }
-
-    &:after {
-      content: "+";
-      display: flex;
-      font-size: 4rem;
-      line-height: 1;
-      height: 6rem;
-      align-items: center;
-    }
+  :root{
+    --content-padding: 1.2rem 0;
+    --content-gap-bottom: 4rem;
   }
 
-  .a-panel {
-    width: 100%;
-    opacity: 0;
-    height: auto;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.45s ease-in-out;
-  }
+  .accordion {
+    
+    @apply w-100%;
 
-  .a-container {
-    &.active {
-      .a-panel {
-        opacity: 1;
-        height: auto;
-        padding: 0 0 2rem 0;
-        max-height: 300vh;
-        max-height: 300svh;
+    &-trigger {
+      @apply relative w-100% text-left py-2 cursor-pointer;
+      transition: 0.3s ease;
+      border: 0 none;
+      border-top: 1px solid #fff;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+       &::before, &::after {
+        position: absolute;
+        content: "";
+        top: 50%; /*aqui ajustamos la altura en el eje Y*/
+        right: 0;
+        width: 2rem;
+        height: 3px;
+        background: #fff;
+        transform: rotate(0deg);
+        transform-origin: center;
+        transition: transform 0.5s;
       }
 
-      .a-btn {
-        &:after {
-          content: "‒";
-        }
+      &::after {
+        transform: rotate(90deg);
       }
+
+      &[aria-expanded="true"]::after {
+        transform: rotate(0deg);
+      }
+
+      /* &:hover,
+      &:focus {
+        background: #000;
+      } */
+
+    }
+
+    &-copy {
+      @apply overflow-hidden;
+      max-height: 0;
+      visibility: hidden;
+      transition:
+        visibility 0.5s,
+        padding 0.5s,
+        max-height 0.5s;
+
+      *{
+        color: #fff;
+      }
+
+      &--open {
+        visibility: visible !important;
+        padding: var(--content-padding);
+        padding-bottom: var(--content-gap-bottom) !important;
+      }
+
+      &:not(.accordion-copy--open){
+        padding: 0 !important;
+      }
+
+    }
+
+  }
+
+  @media (min-width: 540px) {
+    .accordion-copy-pic {
+      width: 180px;
     }
   }
-}
