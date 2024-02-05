@@ -19,5 +19,12 @@ export default defineConfig({
   // base: '/',
 
   adapter: netlify(),
-  prefetch: true
+  prefetch: true,
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  }
 });

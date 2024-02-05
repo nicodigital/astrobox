@@ -1,0 +1,36 @@
+---
+import { languages } from '../i18n/ui';
+import slugify from '../js/slugify.js'
+import getLastItem from '../js/getLastItem.js'
+
+const currentPath = Astro.url.pathname;
+const lastItem = getLastItem(currentPath);
+
+---
+<style>
+
+  ul{
+    @apply leading-none;
+  }
+
+  a{
+        @apply 
+            text-h1 
+            mb-1 
+            xg:text-body
+            xg:mb-0
+            leading-none
+    }
+</style>
+
+<ul class="flex gap-1">
+  { Object.entries(languages).map(([lang, label]) => {
+
+    return <li>
+      <a href={`/${lang}/`} >
+        {label}
+      </a>
+    </li>
+
+  }) }
+</ul>

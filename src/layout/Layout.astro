@@ -8,6 +8,9 @@ import Modal from "../components/Modal.astro";
 import Favicon from "../components/Favicon.astro";
 import Seo from "../components/Seo.astro";
 
+import { getLangFromUrl } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+
 const {
   title = "Título de 65 caracteres",
   claim = "Frase Coooool!",
@@ -17,7 +20,7 @@ const {
 } = Astro.props;
 
 ---
-<html lang="en">
+<html lang={lang} >
   <head>
     <meta charset="utf-8" />
     <Favicon />
