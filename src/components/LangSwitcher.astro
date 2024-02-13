@@ -1,18 +1,17 @@
 ---
 import { languages } from '../i18n/ui';
-import { getLangFromUrl, currPage, useTranslatedPath } from '../i18n/utils';
+import { getLangFromUrl, langMirrorPage } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
+
 let pageURL = "";
-
-
 let lang_label = "";
 
 if( lang === 'en' ){
   lang_label = "Es";
-  pageURL = currPage( Astro.url.pathname, lang, 'es', 'es' );
+  pageURL = langMirrorPage( Astro.url.pathname, lang, 'es', 'es' );
 }else{ // es
   lang_label = "En";
-  pageURL = currPage( Astro.url.pathname, lang, 'es', 'en' );
+  pageURL = langMirrorPage( Astro.url.pathname, lang, 'es', 'en' );
 }
 
 ---

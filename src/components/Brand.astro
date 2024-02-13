@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl,  useTranslatedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
 const homeUrl = import.meta.env.HOME_URL ?? '/';
 const { width } = Astro.props;
 
@@ -6,6 +10,6 @@ const { width } = Astro.props;
 
 ---
 
-<a href={homeUrl} class={`${width} block`} data-astro-prefetch="hover" >
+<a href={translatePath('/')} class={`${width} block`} data-astro-prefetch="hover" >
     <img src={`${homeUrl}img/logos/logo.svg`} alt="" loading='lazy' decoding='async' />
 </a>

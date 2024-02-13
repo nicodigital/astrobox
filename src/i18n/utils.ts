@@ -20,7 +20,7 @@ export function useTranslatedPath(lang: keyof typeof ui) {
   }
 }
 
-export function currPage( pathname, currLang, langDefault, langTarget ) {
+export function langMirrorPage( pathname, currLang, langDefault, langTarget ) {
 
   let langURL = "";
 
@@ -35,3 +35,4 @@ export function currPage( pathname, currLang, langDefault, langTarget ) {
   return langURL;
 
 }
+

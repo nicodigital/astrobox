@@ -1,5 +1,4 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 import LangSwitcher from '../components/LangSwitcher.astro';
@@ -12,8 +11,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const aboutURL = getRelativeLocaleUrl("es", "about");
-
 ---
 <header class="container row py-4 mb-4" >
     <div class="col-span-2 sm:col-span-3 md:col-span-3">
@@ -23,12 +20,12 @@ const aboutURL = getRelativeLocaleUrl("es", "about");
 
         <Menu items={
             [
-                [t('nav.home'), homeUrl ],
+                [t('nav.home'), translatePath('/') ],
                 [t('nav.about'), translatePath('/about/') ],
-                [t('nav.services'), '#cards'],
+                [t('nav.services'), translatePath('/#cards') ],
                 ['Modal','demo','m-link'],
-                [t('nav.icons'),'#icons'],
-                [t('nav.contact'), '#contacto']
+                [t('nav.icons'),translatePath('/#icons')],
+                [t('nav.contact'), translatePath('/#contacto')]
             ]
         } />
 
