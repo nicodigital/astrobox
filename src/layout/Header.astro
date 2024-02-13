@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 import LangSwitcher from '../components/LangSwitcher.astro';
 import Brand from "../components/Brand.astro";
@@ -10,6 +10,8 @@ const homeUrl = import.meta.env.HOME_URL ?? '/';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
 const aboutURL = getRelativeLocaleUrl("es", "about");
 
 ---
@@ -22,7 +24,7 @@ const aboutURL = getRelativeLocaleUrl("es", "about");
         <Menu items={
             [
                 [t('nav.home'), homeUrl ],
-                [t('nav.about'), aboutURL],
+                [t('nav.about'), translatePath('/about/') ],
                 [t('nav.services'), '#cards'],
                 ['Modal','demo','m-link'],
                 [t('nav.icons'),'#icons'],

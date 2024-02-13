@@ -5,6 +5,9 @@ export const languages = {
 
 export const defaultLang = 'es';
 
+export const showDefaultLang = false;
+
+
 // Aqui comienza la traducción
 
 export const ui = {

@@ -59,7 +59,7 @@ const { content } = Astro.props;
       expandedCopy.forEach((copy) => {
         copy.classList.remove(copyOpenClass);
         copy.style.maxHeight = 0;
-        target.style.padding = 'var(--content-padding)';
+        copy.style.padding = 'var(--content-padding)';
       });
     }
 

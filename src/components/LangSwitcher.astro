@@ -1,10 +1,19 @@
 ---
 import { languages } from '../i18n/ui';
-import slugify from '../js/slugify.js'
-import getLastItem from '../js/getLastItem.js'
+import { getLangFromUrl, currPage, useTranslatedPath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+let pageURL = "";
 
-const currentPath = Astro.url.pathname;
-const lastItem = getLastItem(currentPath);
+
+let lang_label = "";
+
+if( lang === 'en' ){
+  lang_label = "Es";
+  pageURL = currPage( Astro.url.pathname, lang, 'es', 'es' );
+}else{ // es
+  lang_label = "En";
+  pageURL = currPage( Astro.url.pathname, lang, 'es', 'en' );
+}
 
 ---
 <style>
@@ -24,13 +33,9 @@ const lastItem = getLastItem(currentPath);
 </style>
 
 <ul class="flex gap-1">
-  { Object.entries(languages).map(([lang, label]) => {
-
-    return <li>
-      <a href={`/${lang}/`} >
-        {label}
+    <li>
+      <a href={`${pageURL}`} >
+        {lang_label}
       </a>
     </li>
-
-  }) }
 </ul>

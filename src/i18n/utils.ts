@@ -1,7 +1,5 @@
 import { ui, defaultLang, showDefaultLang } from './ui';
 
-export const showDefaultLang = false;
-
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
@@ -20,4 +18,20 @@ export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, l: string = lang) {
     return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`
   }
+}
+
+export function currPage( pathname, currLang, langDefault, langTarget ) {
+
+  let langURL = "";
+
+  if( currLang != langDefault ){
+    // Eliminar el idioma y las barras inclinadas del principio de la pathname
+    const page = pathname.replace(`/${currLang}/`, "");
+    langURL = page;
+  }else{
+    langURL = `/${langTarget}${pathname}`;
+  }
+
+  return langURL;
+
 }
