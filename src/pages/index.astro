@@ -1,5 +1,6 @@
 ---
 // export const prerender = false;
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import Layout from "../layout/Layout.astro";
 import Cards from "../layout/Cards.astro";
 import Grid from "../components/Grid.astro";
@@ -21,6 +22,10 @@ const accData = Object.values(getAccData);
 
 /* Filter with viewtrasition */
 import FilterTransition from "../components/FilterTransition.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
 
 <Layout
@@ -29,6 +34,17 @@ import FilterTransition from "../components/FilterTransition.astro";
   description="El nuevo framework de maquetación de sitios de I+D"
 >
   <Grid />
+
+  <section class="container row section-t">
+    <div class="col-[1/13]">
+        <h1 class="h1 mb-5">
+          {t('home.sec1.title')}
+        </h1>
+        <p>
+          {t('home.sec1.txt')}
+        </p>
+    </div>
+  </section>
 
   <div class="section">
     <Slider />
