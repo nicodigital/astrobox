@@ -2,10 +2,11 @@
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 import LangSwitcher from '../components/LangSwitcher.astro';
+import "../css/layout/header.css";
 import Brand from "../components/Brand.astro";
 import Burger from "../components/Burger.astro";
 import Menu from "../components/Menu.astro";
-const homeUrl = import.meta.env.HOME_URL ?? '/';
+import SocialLinks from '../components/SocialLinks.astro'
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -32,7 +33,15 @@ const translatePath = useTranslatedPath(lang);
         <Burger/>
         
     </div>
-    <div class="md:col-[11/13] flex justify-end">
+
+    <div class="col-[11/12] hidden xg:flex justify-end">
+        <div class="flex gap-1 text-white">
+            <SocialLinks />
+        </div>
+    </div>
+
+    <div class="xg:col-[12/13] flex justify-end">
         <LangSwitcher/>   
     </div>
+
 </header>

@@ -1,0 +1,55 @@
+nav {
+    @apply 
+      fixed 
+      flex flex-col 
+      top-0 left-0 
+      w-100% h-full
+      px-2 py-6
+      transition-transform
+      duration-500
+      z-[999]
+
+      xg:relative 
+      xg:h-auto
+      xg:bg-transparent
+      xg:px-0 xg:py-0
+      xg:flex-row xg:justify-between;
+      background-color: color-mix( in srgb, theme(colors.blue), transparent 15% );
+      backdrop-filter: blur(4px);
+
+      a {
+        @apply mb-1 xg:mb-0 text-white;
+        font-size: var(--h1);
+      }
+
+  }
+
+
+  @media (max-width: theme("screens.xg")) {
+
+    nav {
+      transform: translateX(100%);
+    }
+
+    body.menu-in {
+      nav {
+        transform: translateX(0);
+      }
+    }
+
+  }
+
+  @media (min-width: theme("screens.xg")) {
+
+    nav {
+
+      @apply bg-transparent !important;
+      backdrop-filter: none;
+
+      a {
+        font-size: var(--txt-body);
+      }
+
+    }
+
+  }

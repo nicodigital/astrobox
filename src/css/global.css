@@ -1,7 +1,8 @@
 @import "./layout/base.css";
 @import "./layout/tipography.css";
-@import "./layout/header.css";
 @import "./layout/tools.css";
+@import "./layout/buttons.css";
+@import "./layout/scroll-elements.css";
 @import "./layout/custom.css";
 @import "./components/animations.css";    
 /* @import  "./tools.css"; */

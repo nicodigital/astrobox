@@ -1,0 +1,63 @@
+header {
+    
+  @apply fixed
+        top-0
+        left-0
+        w-100%
+        h-[8rem]
+        z-[999]
+        transition-all 
+        mb-4;
+}
+
+.brand{
+    @apply 
+    relative block 
+    w-[15rem]
+    top-1 xg:top-0
+    transition-all;
+}
+
+
+body{
+
+  &:not([data-scroll="top"]) {
+
+    header {
+      @apply translate-y-[-100%] duration-[.5s];
+      background-color: color-mix(
+        in srgb,
+        theme(colors.blue),
+        transparent 5%
+      );
+      backdrop-filter: blur(4px);
+  
+      .brand{
+          @apply opacity-100;
+      }
+  
+    }
+
+    &[data-stack="on"] header{
+      @apply translate-y-[0] shadow-md;
+    }
+
+  }
+
+
+
+}
+
+@media (min-width: theme("screens.xg")) {
+
+  header{
+
+    .brand{
+        @apply opacity-0;
+    }
+
+  }
+
+  
+}
+

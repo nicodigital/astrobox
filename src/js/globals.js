@@ -1,8 +1,10 @@
+import checkDevice from '../js/checkDevice'
+
 /*/////////////////////////////////////////////////////////////////////*/
-/*//////////////////////////// GET DEVICE /////////////////////////////*/
+/*///////////////////////////// GET BASIC /////////////////////////////*/
 /*/////////////////////////////////////////////////////////////////////*/
 
-function getDevice() {
+function getBasic() {
 
 	const html = document.querySelector('html');
 	const body = document.querySelector('body');
@@ -11,102 +13,190 @@ function getDevice() {
 	let winH = document.documentElement.clientHeight;
 	let docH = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 	let headerH = header.offsetHeight;
-
-	let isDesktop = false;
-	let isMobile = false;
-	let isTablet = false;
-	let isBigTablet = false;
-	let device = '';
-
-	if (winW >= 1064) {
-		isDesktop = true;
-		device = 'desktop';
-	} else if (winW < 1064 && winW > 992) {
-		isBigTablet = true;
-		device = 'tablet';
-	} else if (winW < 992 && winW > 640) {
-		isTablet = true;
-		device = 'tablet';
-	} else if (winW < 640) {
-		isMobile = true;
-		device = 'mobile';
-	}
+	const device = checkDevice();
 
 	/* Set Device on HTML tag */
 	html.dataset.device = device;
 
-	let device_data = {
+	let basic = {
 		html: html,
 		body: body,
 		winW: winW,
 		winH: winH,
 		docH: docH,
+		device: device,
 		header: header,
-		isDesktop: isDesktop,
-		isMobile: isMobile,
-		isBigTablet: isBigTablet,
-		isTablet: isTablet,
 		headerH: headerH
 	}
 
-	// get_position(header_brand);
-	// get_position(menu_brand);
-
-	return device_data;
+	return basic;
 
 }
 
 /* Storage Constant Device Values */
-const device_data = getDevice();
-const html = device_data.html;
-const body = device_data.body;
-let winH = device_data.winH;
-let winW = device_data.winW;
-let docH = device_data.docH;
-let header = device_data.header;
-let isDesktop = device_data.isDesktop;
-let isMobile = device_data.isMobile;
-let isTablet = device_data.isTablet;
-let isBigTablet = device_data.isBigTablet;
-let headerH = device_data.headerH;
-
-/* Ejecutar el getDevice si cambia el tamaño del navegador o rota el dispositivo */
-window.addEventListener("resize", getDevice);
-window.addEventListener("orientationchange", getDevice);
+const basic = getBasic();
+const html = basic.html;
+const body = basic.body;
+const device = basic.device;
+let winH = basic.winH;
+let winW = basic.winW;
+let docH = basic.docH;
+let header = basic.header;
+let headerH = basic.headerH;
 
 /*/////////////////////////////////////////////////////////////////////*/
 /*///////////////////////// SCROLL MARKERS ////////////////////////////*/
 /*/////////////////////////////////////////////////////////////////////*/
 function setScrollPosition() {
+	
+	let lastScrollTop = ''
+
   const body = document.querySelector('body');
   const scrollPosition = window.scrollY;
   const windowHeight = window.innerHeight;
   const bodyHeight = document.body.scrollHeight;
+	let footIn = false;
 
-  if (scrollPosition < 100) {
-    body.setAttribute('data-scroll', 'top');
-  } else if (scrollPosition + windowHeight === bodyHeight) {
-    body.setAttribute('data-scroll', 'bottom');
-  } else {
-    body.setAttribute('data-scroll', 'down');
-  }
+	var footer = document.querySelector('footer'); // <-- Cambiar a footer 
+
+	// Opciones para el IntersectionObserver
+	var options = {
+		root: null, // Usar el viewport como área de observación
+		rootMargin: '0px', // Margen adicional alrededor del área de observación
+		threshold: 0.5 // Porcentaje del elemento que debe estar visible para activar la función de callback
+	}
+
+	// Función de callback que se ejecuta cuando el elemento entra en la pantalla
+	var callback = function(entries, observer) {
+		entries.forEach(entry => {
+
+			if (entry.isIntersecting) {
+				console.log('Elemento está ahora en pantalla!');
+				body.setAttribute('data-scroll', 'bottom');
+				// Puedes realizar aquí las acciones que desees cuando el elemento entre en pantalla
+				// Por ejemplo, cambiar su estilo, cargar contenido adicional, etc.
+			}else{
+
+				if (scrollPosition < 100) {
+					body.setAttribute('data-scroll', 'top');
+				} else {
+					body.setAttribute('data-scroll', 'down');
+				}
+
+			}
+		});
+	};
+
+	// Crear una instancia de IntersectionObserver con la función de callback y opciones
+	var observer = new IntersectionObserver(callback, options);
+	// Observa el elemento target
+	observer.observe(footer);
+
+	}
+
+/*/////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////// SMART MENU //////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////*/
+
+let lastScrollTop = ''
+
+function smart_menu() {
+
+	let st = window.scrollY;
+
+	if (st > lastScrollTop) {
+		body.dataset.stack = 'off';
+	} else {
+		body.dataset.stack = 'on';
+	}
+
+	lastScrollTop = st;
+
 }
 
-window.addEventListener('scroll', setScrollPosition);
+/*/////////////////////////////////////////////////////////////////////*/
+/*////////////////////////// MENU MOBILE //////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////*/
+
+function menuMobile() {
+
+  const btn_togg = document.querySelectorAll('.togg');
+
+  // Crea un elemento div que tenga un ancho forzado de desbordamiento
+  var scrollDiv = document.createElement('div');
+  scrollDiv.style.width = '100px';
+  scrollDiv.style.height = '100px';
+  scrollDiv.style.overflow = 'scroll';
+
+  // Agrega el elemento al documento, pero fuera del área visible
+  document.body.appendChild(scrollDiv);
+
+  // Calcula el ancho de la barra de desplazamiento restando el ancho del contenido interno del div del ancho del div con desbordamiento
+  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+  // Elimina el div de prueba
+  document.body.removeChild(scrollDiv);
+
+  // La variable "scrollbarWidth" ahora contiene el ancho de la barra de desplazamiento en píxeles
+  // console.log('Ancho de la barra de desplazamiento: ' + scrollbarWidth + ' píxeles');
+
+
+  function menuToggler() {
+
+    const toggler = document.querySelector('body');
+
+    if ( toggler.classList.contains('menu-in') ) {
+
+      toggler.classList.toggle('menu-in');
+      html.style.overflowY = 'auto';
+      body.style.overflowY = 'auto';
+      body.style.paddingRight = '0';
+
+    } else {
+      toggler.classList.toggle('menu-in');
+      html.style.overflowY = 'hidden';
+      body.style.overflowY = 'hidden';
+      body.style.paddingRight = scrollbarWidth + 'px';
+    }
+
+  }
+
+  btn_togg.forEach(btn => {
+    btn.onclick = () => menuToggler();
+  });
+
+
+}
+
+/*/////////////////////////////////////////////////////////////////////*/
+/*///////////////// EJECUTAR FUNCIONES EN EVENTOS /////////////////////*/
+/*/////////////////////////////////////////////////////////////////////*/
+
+/* Ejecutar el getBasic si cambia el tamaño del navegador o rota el dispositivo */
+window.addEventListener("resize", getBasic);
+window.addEventListener("orientationchange", getBasic);
+
+document.addEventListener('scroll', function () {
+	setScrollPosition();
+	smart_menu();
+});
 
 document.addEventListener('DOMContentLoaded', function () {
-  setScrollPosition();
+	setScrollPosition();
+	menuMobile();
 });
 
 document.addEventListener('astro:after-swap', function () {
-  setScrollPosition();
+	setScrollPosition();
+  smart_menu();
+	menuMobile();
 });
 
 /*/////////////////////////////////////////////////////////////////////*/
 /*//////////////////// ALERT GIRAR DISPOSITIVO ////////////////////////*/
 /*/////////////////////////////////////////////////////////////////////*/
 
-if (!isDesktop) {
+if ( device != 'desktop' ) {
 
 	function rotateDeviceHorizontal() {
 		if (window.orientation === 0 || window.orientation === 180) {
@@ -122,7 +212,7 @@ if (!isDesktop) {
 		}
 	}
 
-	if (isBigTablet) {
+	if ( device == 'bigTablet' ) {
 
 		rotateDeviceHorizontal();
 
@@ -132,7 +222,7 @@ if (!isDesktop) {
 
 	}
 
-	if (isMobile && !isBigTablet) {
+	if ( device == 'mobile' && device != 'bigTablet' ) {
 
 		rotateDeviceVertical()
 
