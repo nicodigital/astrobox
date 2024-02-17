@@ -7,6 +7,7 @@ import Footer from "./Footer.astro";
 import Modal from "../components/Modal.astro";
 import Favicon from "../components/Favicon.astro";
 import Seo from "../components/Seo.astro";
+// import getSlug from '../js/getSlug'
 
 const {
   title = "Título de 65 caracteres",
@@ -15,6 +16,9 @@ const {
   image,
   robots,
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const currPage = currentPath.slice(1);
 
 ---
 <html lang="en">
@@ -35,22 +39,25 @@ const {
     <meta name="format-detection" content="telephone=no" />
     <!-- <ViewTransitions /> -->
   </head>
-  <body id="top">
-    <Header />
+  <body id="top" data-page={currPage} data-scroll="top" >
+
+    {
+      currPage !== "gracias" &&  <Header />
+    }
 
     <main>
       <slot />
     </main>
 
-    <Footer />
+    {
+      currPage !== "gracias" && <Footer />
+    }
 
     <Modal name="demo" show="off" type="">
       <h2 class="h1 text-center">Este es el mejor modal del mundo!</h2>
     </Modal>
 
-    <script>
-      import "../js/globals";
-    </script>
+    <script> import "../js/globals";</script>
     
   </body>
 </html>

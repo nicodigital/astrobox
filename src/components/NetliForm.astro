@@ -1,11 +1,9 @@
 ---
 import "../css/components/forms.css";
+import { Icon } from "astro-icon/components";
 ---
 
-<form
-  name="form"
-  action="/gracias"
-  netlify
+<form name="form" action="/gracias" netlify
   data-netlify-recaptcha="true"
   method="post"
   accept-charset="utf-8"
@@ -53,18 +51,18 @@ import "../css/components/forms.css";
     <p>Revisa el código introducido.</p>
   </div>
 
-  <div class="flex justify-between mt-2">
+  <div class="flex flex-col md:flex-row justify-between mt-2">
 
     <div data-netlify-recaptcha="true"></div>
 
     <button
       type="submit"
-      class="btn submit btn-solid-black btn-lg btn-circular"
+      class="btn submit btn-solid-black btn-lg btn-circular mt-3 md:mt-0"
       disabled
     >
-      <span class="flex align-center">
+      <span class="flex">
         <span class="loader mr-1"></span>
-        <span class="white">Enviar</span>
+        <span class="white flex">Enviar <Icon name="mdi:send" size="2.5rem" class="ml-1" /></span>
       </span>
     </button>
 

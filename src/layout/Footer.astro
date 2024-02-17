@@ -1,6 +1,7 @@
 ---
 import Brand from "../components/Brand.astro";
-import Gotop from "../components/Gotop.astro";
+import GoTop from "../components/GoTop.astro";
+import WhatsApp from '../components/WhatsApp.astro';
 import { getHoy } from '../js/gethoy.js'
 const hoy = getHoy();
 
@@ -13,7 +14,9 @@ const hoy = getHoy();
         {`© ${hoy}`}
     </div>
     <div class="sm:col-[2/12] xg:col-[11/13] flex justify-end">
-        <Gotop/>
+        <GoTop/>
     </div>
 </footer>
+
+<WhatsApp num="+59898398010" msg="Hola AR Sistemas" />
 

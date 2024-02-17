@@ -4,7 +4,9 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'invalid': '#f00',
+				'blue': '#151F6D',
+				'red': '#fe0000',
+				'invalid': '#fe0000',
 			},
 			fontFamily: {
 				sans: ['Inconsolata', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif' ],
