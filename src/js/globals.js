@@ -297,3 +297,5 @@ if (animations) {
 	});
 
 }
+
+// import "../js/smoothscroll";
