@@ -1,4 +1,5 @@
 import checkDevice from '../js/checkDevice'
+// import smoothScroll from "../js/smoothscroll"
 
 /*/////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////// GET BASIC /////////////////////////////*/
@@ -298,4 +299,6 @@ if (animations) {
 
 }
 
-// import "../js/smoothscroll";
+// if ( device == 'desktop' ) {
+// 	smoothScroll();
+// }
