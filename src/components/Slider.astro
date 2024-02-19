@@ -20,17 +20,17 @@ const hero = getData[0].acf.hero;
 <!-- Slider main container -->
 <div class="swiper bg-neutral-600">
   <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-    {
-      hero.slider.map((slide) => (
-        <div class="swiper-slide">
-          <Picture 
-              url={slide.imagen.url} 
-              style="grayscale h-[100vh]"
-              />
-        </div>
-      ))
-    }
+  <div class="swiper-wrapper"
+    hx-get="http://api.id.net.uy/wp-json/wp/v2/pages?slug=ufilms"
+    hx-trigger="load"
+    hx-target="this"
+
+    >
+
+    <div class="swiper-slide">
+      <Picture url="" style="grayscale h-[100vh]" />
+    </div>
+
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
@@ -45,6 +45,7 @@ const hero = getData[0].acf.hero;
 
 <script>
   import Swiper from "swiper";
+  import "htmx.org";
 
   function swiperSlider() {
     const SwiperSlider = new Swiper(".swiper", {
