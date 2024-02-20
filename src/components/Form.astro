@@ -1,48 +1,6 @@
 ---
-import "../styles/components/forms.css";
-import { Resend } from "resend";
-import genCaptcha from "../js/captcha";
-import sendForm from "../js/sendForm";
-
-const resend = new Resend("re_G9Mhr6fx_Pmf7KYaExFasXXFWzDYXQCbn");
-const captcha = genCaptcha();
-const errors = { username: "", email: "", phone: "" };
-
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const phone = data.get("phone");
-    const message = data.get("message");
-
-    // Validación //////////////////////////////////
-
-    // Name
-    if (typeof name !== "string" || name.length < 1) {
-      errors.username += "Debes colocar tu nombre y apellido. ";
-    }
-
-    // Email
-    // if (typeof email !== "string" || !isValidEmail(email)) {
-    //   errors.email += "Email is not valid. ";
-    // } else if (await isRegistered(email)) {
-    //   errors.email += "Email is already registered. ";
-    // }
-
-    // Revisamos los errores
-    const hasErrors = Object.values(errors).some((msg) => msg);
-
-    if (!hasErrors) {
-      await sendForm(name, email, phone, message, resend);
-    }
-
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
-}
+import "../css/components/forms.css";
+import { Icon } from "astro-icon/components";
 ---
 
 <form
@@ -96,33 +54,29 @@ if (Astro.request.method === "POST") {
     <div class="valid-msg">Tu mensaje debe ser de mas de 16 caracteres.</div>
   </div>
 
-  <!-- captcha -->
-  <div class="grid sm:grid-cols-2 gap-1">
-    <div class="opacity-50">
-      <label for="captcha"> ¿Eres un humano? </label>
-      <input type="text" id="captcha" value={captcha} required disabled >
-    </div>
-    <div>
-      <label for="" class="opacity-50"> entonces </label>
-      <input type="text" id="getcaptcha" placeholder="digita aquí el código" required >
-      <div class="notify">
-          <p>Revisa el código introducido.</p>
-      </div>
-    </div>
-  </div>
+  <div class="flex justify-between ">
 
-  <div class="field">
-    <button type="submit" class="btn submit btn-solid-black btn-lg btn-circular">
-      <span class="flex align-center">
+    <!-- captcha -->
+    <div class="flex gap-1 w-[33%]">
+      <input type="text" class="w-[33%]" id="captcha" value="" required disabled />
+      <input type="text" class="w-[66%]" id="captchaResult" placeholder="***" required />
+    </div>
+
+    <button
+      type="submit"
+      class="btn submit btn-solid-black btn-lg btn-circular"
+    >
+      <span class="flex items-center">
         <span class="loader mr-1"></span>
-        <span class="white">Enviar</span>
+        <span class="white flex items-center"
+          >Enviar <Icon name="mdi:send" size="2.5rem" class="ml-1" />
+        </span>
       </span>
     </button>
   </div>
-
 </form>
 
 <script>
-  import validForm from '../js/validForm'
-  validForm();
+  import sendForm from "../js/sendForm";  
+  sendForm();
 </script>
