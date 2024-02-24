@@ -24,39 +24,28 @@ body{
   &:not([data-scroll="top"]) {
 
     header {
-      @apply translate-y-[-100%] duration-[.5s];
-      background-color: color-mix(
-        in srgb,
-        theme(colors.blue),
-        transparent 5%
-      );
-      backdrop-filter: blur(4px);
-  
-      .brand{
-          @apply opacity-100;
+      @apply bg-white translate-y-[-100%] duration-[.5s];
+
+      a{
+        @apply text-red ;
       }
-  
     }
 
     &[data-stack="on"] header{
-      @apply translate-y-[0] shadow-md;
+      @apply translate-y-[0];
+    }
+
+    .brand svg path{
+      fill: theme(colors.red);
     }
 
   }
-
-
 
 }
 
+
 @media (min-width: theme("screens.xg")) {
 
-  header{
-
-    .brand{
-        @apply opacity-0;
-    }
-
-  }
 
   
 }

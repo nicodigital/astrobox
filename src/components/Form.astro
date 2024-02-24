@@ -2,14 +2,14 @@
 import "../css/components/forms.css";
 import { Icon } from "astro-icon/components";
 ---
+<form id="contact-form" name="form" action="#" method="post" accept-charset="utf-8" >
 
-<form
-  id="contact-form"
-  name="form"
-  action="#"
-  method="post"
-  accept-charset="utf-8"
->
+<!-- Settings -->
+<input type="hidden" name="access_key" value="fdacd6a8-2e18-40c0-9d31-3fd099bf7bef">
+<input type="hidden" name="from_name" value="AstroBox 1.0">
+<input type="hidden" name="subject" value="Contacto con Web3Forms!">
+<input type="hidden" name="replyto" value="nico@nicowebsite.com" />
+
   <div class="field">
     <input
       type="text"
@@ -62,10 +62,7 @@ import { Icon } from "astro-icon/components";
       <input type="text" class="w-[66%]" id="captchaResult" placeholder="***" required />
     </div>
 
-    <button
-      type="submit"
-      class="btn submit btn-solid-black btn-lg btn-circular"
-    >
+    <button type="submit" disabled >
       <span class="flex items-center">
         <span class="loader mr-1"></span>
         <span class="white flex items-center"
@@ -77,6 +74,6 @@ import { Icon } from "astro-icon/components";
 </form>
 
 <script>
-  import sendForm from "../js/sendForm";  
-  sendForm();
+  import contactForm from "../js/contactForm";  
+  contactForm();
 </script>

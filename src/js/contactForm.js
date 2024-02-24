@@ -201,7 +201,7 @@ function contactForm() {
   
               if (response.status == 200) {
                 
-                window.location.href = baseURL + "?form=ok";
+                window.location.href = baseURL + "gracias";
                 // result.innerHTML = json.message;
   
               } else {

@@ -59,8 +59,9 @@
     }
 
     [type="submit"] {
-      @apply text-body cursor-pointer border-none p-0;
+      @apply text-body cursor-pointer border-none p-0 disabled:opacity-50;
     }
+
   }
 
 
