@@ -1,6 +1,10 @@
 ---
 import "@fontsource/inconsolata";
 // import { ViewTransitions } from "astro:transitions";
+
+import getSlug from '../js/getSlug';
+import getFirstUrlTerm from '../js/getFirstUrlTerm';
+
 import "../css/global.css";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
@@ -17,8 +21,19 @@ const {
   robots,
 } = Astro.props;
 
+/* Get Page */
 const currentPath = Astro.url.pathname;
-const currPage = currentPath.slice(1);
+const currPage = getSlug(currentPath);
+const firstUrlTerm = getFirstUrlTerm(currentPath);
+let dataPage = "";
+
+if( currPage === '' ){
+  dataPage = 'home';
+}else if( currPage != firstUrlTerm ){
+  dataPage = firstUrlTerm;
+}else{
+  dataPage = currPage;
+}
 
 ---
 <html lang="en">
@@ -39,7 +54,7 @@ const currPage = currentPath.slice(1);
     <meta name="format-detection" content="telephone=no" />
     <!-- <ViewTransitions /> -->
   </head>
-  <body id="top" data-page={currPage} data-scroll="top" >
+  <body id="top" data-page={dataPage} data-scroll="top" >
 
     {
       currPage !== "gracias" &&  <Header />

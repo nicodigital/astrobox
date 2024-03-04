@@ -47,7 +47,7 @@ nav {
       backdrop-filter: none;
 
       a {
-        font-size: var(--txt-body);
+        font-size: var(--text-body);
       }
 
     }

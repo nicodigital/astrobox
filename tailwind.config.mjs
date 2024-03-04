@@ -13,13 +13,13 @@ export default {
 				// serif: ['Roboto Slab'],
 			},
 			fontSize: {
-				'big': ['3rem','1.4'],
-				'h1': ['2.5rem','1.4'],
-				'h2': ['2rem','1.2'],
-				'h3': ['1.8rem','1.2'],
-				'body': ['1.6rem','1.3'],
-				'small': ['1.4rem','1.3']
-			},
+				'big': 'var(--text-big)',
+				'h1': 'var(--h1)',
+				'h2': 'var(--h2)',
+				'h3': 'var(--h3)',
+				'body': 'var(--text-body)',
+				'small': 'var(--small)'
+			},	
 			spacing: {
 				'0': '0',
 				'.5': '.5rem',

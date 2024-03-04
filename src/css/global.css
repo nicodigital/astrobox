@@ -1,5 +1,5 @@
-@import "./layout/base.css";
-@import "./layout/tipography.css";
+@import "./layout/layout.css";
+@import "./layout/typography.css";
 @import "./layout/tools.css";
 @import "./layout/buttons.css";
 @import "./layout/scroll-elements.css";

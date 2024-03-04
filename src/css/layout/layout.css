@@ -3,7 +3,6 @@
 }
 
 html {
-  font-size: var(--html);
   scroll-behavior: smooth;
 }
 
@@ -20,6 +19,14 @@ body {
 .row {
   @apply grid grid-cols-2 gap-1 sm:grid-cols-6 md:grid-cols-12 md:gap-2;
 }
+
+.ctr-gap{padding: var(--container-gap) var(--container-gap)}
+.ctr-gap-x{padding: 0 var(--container-gap)}
+.ctr-gap-y{padding: var(--container-gap) 0}
+.ctr-gap-left{padding-left: var(--container-gap)}
+.ctr-gap-right{padding-right: var(--container-gap)}
+.ctr-gap-top{padding-top: var(--container-gap)}
+.ctr-gap-bottom{padding-bottom: var(--container-gap)}
 
 /*//////////////////////////////////////////////////////////*/
 /*/////////////////////////// XS ///////////////////////////*/
