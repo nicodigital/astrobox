@@ -1,6 +1,6 @@
 ---
 import "@fontsource/inconsolata";
-// import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions";
 
 import getSlug from '../js/getSlug';
 import getFirstUrlTerm from '../js/getFirstUrlTerm';
@@ -52,7 +52,7 @@ if( currPage === '' ){
       content="black-translucent"
     />
     <meta name="format-detection" content="telephone=no" />
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
   </head>
   <body id="top" data-page={dataPage} data-scroll="top" >
 

@@ -1,3 +1,7 @@
+.animate{
+  @apply opacity-0;
+}
+
 .mod {
   @apply bg-neutral-800 text-white p-2 rounded-lg flex items-center justify-center;
 }
