@@ -17,6 +17,8 @@ body {
   @apply text-body bg-neutral-700 text-white;
 }
 
+[id]{scroll-margin-top: 10ex}
+
 .row {
   @apply grid grid-cols-2 gap-1 sm:grid-cols-6 md:grid-cols-12 md:gap-2;
 }

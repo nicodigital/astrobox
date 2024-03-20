@@ -1,5 +1,6 @@
 import checkDevice from '../js/checkDevice'
-// import smoothScroll from "../js/smoothscroll"
+import smoothScroll from "../js/smoothscroll"
+// import animations from "../js/animations"
 // import Rellax from "rellax";
 /*/////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////// GET BASIC /////////////////////////////*/
@@ -50,14 +51,8 @@ let headerH = basic.headerH;
 /*/////////////////////////////////////////////////////////////////////*/
 function setScrollPosition() {
 	
-	let lastScrollTop = ''
-
   const body = document.querySelector('body');
   const scrollPosition = window.scrollY;
-  const windowHeight = window.innerHeight;
-  const bodyHeight = document.body.scrollHeight;
-	let footIn = false;
-
 	var footer = document.querySelector('footer'); // <-- Cambiar a footer 
 
 	// Opciones para el IntersectionObserver
@@ -185,12 +180,14 @@ document.addEventListener('scroll', function () {
 document.addEventListener('DOMContentLoaded', function () {
 	setScrollPosition();
 	menuMobile();
+	animations();
 });
 
 document.addEventListener('astro:after-swap', function () {
 	setScrollPosition();
   smart_menu();
 	menuMobile();
+	animations();
 });
 
 /*/////////////////////////////////////////////////////////////////////*/
