@@ -1,27 +1,27 @@
 ---
 // export const prerender = false;
-import Layout from "../layout/Layout.astro";
-import Cards from "../layout/Cards.astro";
-import Grid from "../components/Grid.astro";
-import Icons from "../components/Icons.astro";
+import Layout from "@/layout/Layout.astro";
+import Cards from "@/layout/Cards.astro";
+import Grid from "@/components/Grid.astro";
+import Icons from "@/components/Icons.astro";
 
 /* Slider */
-import Slider from "../components/Slider.astro";
+import Slider from "@/components/Slider.astro";
 
 /* Formulario */
-//import NetliForm from "../components/NetliForm.astro";
-import Form from "../components/Form.astro";
+//import NetliForm from "@/components/NetliForm.astro";
+import Form from "@/components/Form.astro";
 
 /* Accordion */
-import Accordion from "../components/Accordion.astro";
-import getAccData from "../data/accordion.json";
+import Accordion from "@/components/Accordion.astro";
+import getAccData from "@/data/accordion.json";
 const accData = Object.values(getAccData);
 
 /* Switcher */
-// import Switcher from "../components/Switcher.astro";
+// import Switcher from "@/components/Switcher.astro";
 
 /* Filter with viewtrasition */
-import FilterTransition from "../components/FilterTransition.astro";
+import FilterTransition from "@/components/FilterTransition.astro";
 ---
 
 <Layout
