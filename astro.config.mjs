@@ -16,7 +16,7 @@ export default defineConfig({
 
   // Aqui va el folder, en caso de root -> /
   // base: '/astro',
-  // base: '/',
+  base: '/',
 
   adapter: netlify(),
   prefetch: true,
