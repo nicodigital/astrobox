@@ -16,17 +16,37 @@ body {
   @apply text-body bg-neutral-700 text-white;
 }
 
-.row {
-  @apply grid grid-cols-2 gap-1 sm:grid-cols-6 md:grid-cols-12 md:gap-2;
+/* Lenis Scroll */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
-.ctr-gap{padding: var(--container-gap) var(--container-gap)}
-.ctr-gap-x{padding: 0 var(--container-gap)}
-.ctr-gap-y{padding: var(--container-gap) 0}
-.ctr-gap-left{padding-left: var(--container-gap)}
-.ctr-gap-right{padding-right: var(--container-gap)}
-.ctr-gap-top{padding-top: var(--container-gap)}
-.ctr-gap-bottom{padding-bottom: var(--container-gap)}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Grid System */
+
+.row {
+  @apply grid gap-1 grid-cols-12 md:gap-2;
+  /* @apply grid grid-cols-4 gap-1 sm:grid-cols-6 md:grid-cols-12 md:gap-2; */
+}
+
+.ctr-p{padding: var(--container-gap) var(--container-gap)}
+.ctr-px{padding: 0 var(--container-gap)}
+.ctr-py{padding: var(--container-gap) 0}
+.ctr-pl{padding-left: var(--container-gap)}
+.ctr-pr{padding-right: var(--container-gap)}
+.ctr-pt{padding-top: var(--container-gap)}
+.ctr-pb{padding-bottom: var(--container-gap)}
 
 /*//////////////////////////////////////////////////////////*/
 /*/////////////////////////// XS ///////////////////////////*/

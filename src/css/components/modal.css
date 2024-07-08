@@ -1,7 +1,6 @@
   .modal {
     @apply fixed
             w-full
-            h-full
             top-0
             left-0
             flex
@@ -13,6 +12,8 @@
             translate-y-full
             transition-transform
             duration-500;
+    height: 100vh;
+    height: 100dvh;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 

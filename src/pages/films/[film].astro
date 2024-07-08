@@ -13,6 +13,8 @@ export async function getStaticPaths() {
     "http://api.id.net.uy/wp-json/wp/v2/pages?slug=ufilms"
   );
 
+  // NO DEBEMOS HACER CONSOLE AQUI //
+
   const getFilms = await response.json();
   const films = getFilms[0].acf.films;
 
@@ -51,20 +53,20 @@ const currFilm = films.find(
   description="El nuevo framework de maquetación de sitios de I+D"
 >
   <div class="container row">
-    <div class="col-[1/13] md:col-[1/6]">
+    <div class="md:col-1-6">
       <h1 class="h1 mb-5">{currFilm.acfe_flexible_layout_title}</h1>
       <Fragment set:html={currFilm.intro_es}> </Fragment>
     </div>
-    <div class="col-[1/13] md:col-[7/12]">
+    <div class="md:col-7-12">
       <Picture url={currFilm.poster.url} />
     </div>
   </div>
 
   <div id="contacto" class="container row section">
-    <div class="col-[1/13] md:col-[1/6]">
+    <div class="md:col-1-6">
       <h2 class="h2">Contacto</h2>
     </div>
-    <div class="col-[1/13] md:col-[7/12]">
+    <div class="md:col-7-12">
       <NetliForm />
     </div>
   </div>
