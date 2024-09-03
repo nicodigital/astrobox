@@ -4,7 +4,7 @@ name: Deploy website via FTP
 on:
   push:
     branches:
-      - master  # O la rama que estés utilizando para los despliegues
+      - Deploy  # O la rama que estés utilizando para los despliegues
 
 jobs:
   deploy:
@@ -32,8 +32,8 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist  # Cambia esto si tu carpeta de salida es diferente
-        server-dir: /public_html/astro  # Cambia esto por la ruta en tu servidor FTP
+        local-dir: ./dist/  # Cambia esto si tu carpeta de salida es diferente
+        server-dir: /public_html/astro/  # Cambia esto por la ruta en tu servidor FTP
         exclude: |
           **/.git*
           **/node_modules/**
