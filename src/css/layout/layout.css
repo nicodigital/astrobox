@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply text-body bg-neutral-700 text-white;
+  @apply text-body;
 }
 
 /* Lenis Scroll */
@@ -39,14 +39,6 @@ body {
   @apply grid gap-1 grid-cols-12 md:gap-2;
   /* @apply grid grid-cols-4 gap-1 sm:grid-cols-6 md:grid-cols-12 md:gap-2; */
 }
-
-.ctr-p{padding: var(--container-gap) var(--container-gap)}
-.ctr-px{padding: 0 var(--container-gap)}
-.ctr-py{padding: var(--container-gap) 0}
-.ctr-pl{padding-left: var(--container-gap)}
-.ctr-pr{padding-right: var(--container-gap)}
-.ctr-pt{padding-top: var(--container-gap)}
-.ctr-pb{padding-bottom: var(--container-gap)}
 
 /*//////////////////////////////////////////////////////////*/
 /*/////////////////////////// XS ///////////////////////////*/

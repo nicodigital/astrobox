@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^4.1.0",
+    "@astrojs/netlify": "^5.5.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/inconsolata": "^5.0.16",
     "@iconify-json/mdi": "^1.1.64",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
-    "astro": "^4.0.8",
+    "astro": "^4.15.2",
     "astro-icon": "^1.0.2",
     "lenis": "^1.1.6",
     "motion": "^10.17.0",

@@ -214,5 +214,35 @@ export default {
 				}
 			})
 		},
+		function({ addUtilities }) {
+      const newUtilities = {
+        '.ctr-p': {
+          padding: 'var(--container-gap) var(--container-gap)',
+        },
+        '.ctr-px': {
+          paddingLeft: 'var(--container-gap)',
+          paddingRight: 'var(--container-gap)',
+        },
+        '.ctr-py': {
+          paddingTop: 'var(--container-gap)',
+          paddingBottom: 'var(--container-gap)',
+        },
+        '.ctr-pl': {
+          paddingLeft: 'var(--container-gap)',
+        },
+        '.ctr-pr': {
+          paddingRight: 'var(--container-gap)',
+        },
+        '.ctr-pt': {
+          paddingTop: 'var(--container-gap)',
+        },
+        '.ctr-pb': {
+          paddingBottom: 'var(--container-gap)',
+        },
+      }
+
+      addUtilities( newUtilities, ['responsive'])
+			
+    }
 	],
 }

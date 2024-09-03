@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-size: var(--text-body);
+  @apply text-body;
 }
 
 p {

@@ -3,11 +3,22 @@ const { items } = Astro.props;
 import '../css/layout/menu.css';
 ---
 <nav>
-    {
-        items.map( item =>(
-        <a href={ item[1] } class={ item[2] } data-astro-prefetch="hover" >
-            { item[0] }
-        </a>
-        ) )
-    }
+    <a href="/" data-astro-prefetch="hover" >
+        Home
+    </a>
+    <a href="about" data-astro-prefetch="hover" >
+        About
+    </a>
+    <a href="#cards" >
+        Services
+    </a>
+    <a href="#" class="m-link" data-modal="demo" >
+        Modal
+    </a>
+    <a href="#icons" >
+        Icons
+    </a>
+    <a href="#contacto" >
+        Contact
+    </a>
 </nav>

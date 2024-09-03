@@ -1,10 +1,9 @@
 import checkDevice from '../js/checkDevice'
-import lenisScroll from "../js/lenisScroll"
+import smoothscroll from '../js/smoothscroll'
 import scrollMarkers from "../js/scrollMarkers"
 import smartMenu from "../js/smartMenu"
 import menuMobile from '../js/menuMobile'
 import Animations from '../js/animations'
-// import Rellax from "rellax";
 // import Rellax from "rellax";
 
 /*/////////////////////////////////////////////////////////////////////*/
@@ -60,18 +59,20 @@ window.addEventListener("resize", getBasic);
 window.addEventListener("orientationchange", getBasic);
 
 document.addEventListener('scroll', function () {
-	scrollMarkers();
-	smartMenu();
+	scrollMarkers()
+	smartMenu()
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-	menuMobile();
-	Animations();
+	smoothscroll()
+	menuMobile()
+	Animations()
 });
 
 document.addEventListener('astro:after-swap', function () {
-	menuMobile();
-	Animations();
+	smoothscroll()
+	menuMobile()
+	Animations()
 });
 
 /*/////////////////////////////////////////////////////////////////////*/
@@ -124,4 +125,3 @@ if ( device != 'desktop' ) {
 
 }
 
-	lenisScroll();

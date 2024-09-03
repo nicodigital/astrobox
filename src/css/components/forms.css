@@ -2,6 +2,7 @@
     --field-height: 7rem;
     --field-margin-bottom: 2rem;
     --option-height: calc(var(--field-height) + var(--field-margin-bottom));
+    --form-color: #000;
     --invalid-color: theme('colors.invalid');
   }
 
@@ -19,15 +20,14 @@
         w-full 
         bg-transparent 
         border-b
-       border-b-white 
         py-2 
         pr-1 
         shadow-none 
         placeholder-opacity-100
         focus:outline-none
-        placeholder-white
         ;
-      
+      color: var(--form-color);
+      border-bottom: 1px solid var(--form-color); 
       min-height: var(--field-height);
       height: var(--field-height);
       line-height: 1;
@@ -60,6 +60,12 @@
 
     [type="submit"] {
       @apply text-body cursor-pointer border-none p-0 disabled:opacity-50;
+    }
+
+    /* El placeholder solo lo agarra aca */
+    input::placeholder, textarea::placeholder{
+      color: var(--form-color) !important;
+      opacity: 1 !important;
     }
 
   }
