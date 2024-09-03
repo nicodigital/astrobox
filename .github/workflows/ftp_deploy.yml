@@ -33,7 +33,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/  # Cambia esto si tu carpeta de salida es diferente
-        server-dir: /public_html/astro  # Cambia esto por la ruta en tu servidor FTP
+        server-dir: /public_html/astro/  # Cambia esto por la ruta en tu servidor FTP
         exclude: |
           **/.git*
           **/node_modules/**
