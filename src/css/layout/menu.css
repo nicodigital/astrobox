@@ -55,7 +55,7 @@ nav {
       backdrop-filter: none;
 
       a {
-        @apply text-body text-black;
+        @apply text-body;
       }
 
     }
