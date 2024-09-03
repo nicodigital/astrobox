@@ -4,7 +4,7 @@ name: Deploy website via FTP
 on:
   push:
     branches:
-      - master  # O la rama que estés utilizando para los despliegues
+      - Deploy  # O la rama que estés utilizando para los despliegues
 
 jobs:
   deploy:
