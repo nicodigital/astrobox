@@ -3,7 +3,7 @@
 }
 
 .mod {
-  @apply bg-neutral-600 p-2 rounded-lg flex items-center justify-center text-black;
+  @apply bg-neutral-500 p-2 rounded-lg flex items-center justify-center text-white;
 }
 
 

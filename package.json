@@ -17,6 +17,7 @@
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "astro": "^4.15.2",
     "astro-icon": "^1.0.2",
+    "astro-tunnel": "^0.1.6",
     "lenis": "^1.1.6",
     "motion": "^10.17.0",
     "resend": "^2.1.0",

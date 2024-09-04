@@ -2,4 +2,8 @@
   "workbench.editor.customLabels.patterns": {
     "**/pages/**": "${dirname}/${filename}.${extname}",
   },
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#ff0000",
+    "statusBar.foreground": "#fff"
+  }
 }
