@@ -14,11 +14,11 @@ nav {
       xg:bg-transparent
       xg:px-0 xg:py-0
       xg:flex-row xg:justify-between;
-      background-color: color-mix( in srgb, theme(colors.blue), transparent 15% );
+      background-color: #333;
       backdrop-filter: blur(4px);
 
       a {
-        @apply mb-1 xg:mb-0 text-white;
+        @apply mb-1 xg:mb-0 text-white xg:text-black;
         font-size: var(--h1);
       }
 
