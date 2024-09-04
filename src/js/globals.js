@@ -1,8 +1,9 @@
 import checkDevice from '../js/checkDevice'
-import smoothscroll from '../js/smoothscroll'
+// import smoothscroll from '../js/smoothscroll'
 import scrollMarkers from "../js/scrollMarkers"
 import smartMenu from "../js/smartMenu"
 import menuMobile from '../js/menuMobile'
+import lenisScroll from '../js/lenisScroll'
 import Animations from '../js/animations'
 // import Rellax from "rellax";
 
@@ -64,13 +65,13 @@ document.addEventListener('scroll', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-	smoothscroll()
+	lenisScroll()
 	menuMobile()
 	Animations()
 });
 
 document.addEventListener('astro:after-swap', function () {
-	smoothscroll()
+	lenisScroll()
 	menuMobile()
 	Animations()
 });
