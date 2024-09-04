@@ -1,12 +1,13 @@
 ---
 const { items } = Astro.props;
 import '../css/layout/menu.css';
+const baseURL = import.meta.env.BASE_URL;
 ---
 <nav>
     <a href="/" data-astro-prefetch="hover" >
         Home
     </a>
-    <a href="about" data-astro-prefetch="hover" >
+    <a href={ `${baseURL}/about` } data-astro-prefetch="hover" >
         About
     </a>
     <a href="#cards" >

@@ -19,7 +19,7 @@ dependencies:
     version: 1.1.65
   '@tailwindcss/nesting':
     specifier: ^0.0.0-insiders.565cd3e
-    version: 0.0.0-insiders.565cd3e(postcss@8.4.38)
+    version: 0.0.0-insiders.565cd3e(postcss@8.4.44)
   astro:
     specifier: ^4.15.2
     version: 4.15.2(typescript@5.5.4)
@@ -45,7 +45,7 @@ dependencies:
 devDependencies:
   postcss-nesting:
     specifier: ^12.0.2
-    version: 12.1.1(postcss@8.4.38)
+    version: 12.1.1(postcss@8.4.44)
 
 packages:
 
@@ -1398,13 +1398,13 @@ packages:
     resolution: {integrity: sha512-5FinaOp6Vdh/dl4/yaOTh0ZeKch+rYS8DUb38V3GMKYVkdqzxw53lViRKUYkVILRiVQT7dcPC7VvAKOR73zVtQ==}
     dev: false
 
-  /@tailwindcss/nesting@0.0.0-insiders.565cd3e(postcss@8.4.38):
+  /@tailwindcss/nesting@0.0.0-insiders.565cd3e(postcss@8.4.44):
     resolution: {integrity: sha512-WhHoFBx19TnH/c+xLwT/sxei6+4RpdfiyG3MYXfmLaMsADmVqBkF7B6lDalgZD9YdM459MF7DtxVbWkOrV7IaQ==}
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      postcss: 8.4.38
-      postcss-nested: 5.0.6(postcss@8.4.38)
+      postcss: 8.4.44
+      postcss-nested: 5.0.6(postcss@8.4.44)
     dev: false
 
   /@trysound/sax@0.2.0:
@@ -3969,10 +3969,10 @@ packages:
 
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
+    dev: false
 
   /picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
-    dev: false
 
   /picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -4048,13 +4048,13 @@ packages:
       yaml: 2.4.1
     dev: false
 
-  /postcss-nested@5.0.6(postcss@8.4.38):
+  /postcss-nested@5.0.6(postcss@8.4.44):
     resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.38
+      postcss: 8.4.44
       postcss-selector-parser: 6.0.16
     dev: false
 
@@ -4068,7 +4068,7 @@ packages:
       postcss-selector-parser: 6.0.16
     dev: false
 
-  /postcss-nesting@12.1.1(postcss@8.4.38):
+  /postcss-nesting@12.1.1(postcss@8.4.44):
     resolution: {integrity: sha512-qc74KvIAQNa5ujZKG1UV286dhaDW6basbUy2i9AzNU/T8C9hpvGu9NZzm1SfePe2yP7sPYgpA8d4sPVopn2Hhw==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
@@ -4076,7 +4076,7 @@ packages:
     dependencies:
       '@csstools/selector-resolve-nested': 1.1.0(postcss-selector-parser@6.0.16)
       '@csstools/selector-specificity': 3.0.3(postcss-selector-parser@6.0.16)
-      postcss: 8.4.38
+      postcss: 8.4.44
       postcss-selector-parser: 6.0.16
     dev: true
 
@@ -4098,6 +4098,7 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
+    dev: false
 
   /postcss@8.4.44:
     resolution: {integrity: sha512-Aweb9unOEpQ3ezu4Q00DPvvM2ZTUitJdNKeP/+uQgr1IBIqu574IaZoURId7BKtWMREwzKa9OgzPzezWGPWFQw==}
@@ -4106,7 +4107,6 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.1.0
       source-map-js: 1.2.0
-    dev: false
 
   /preferred-pm@4.0.0:
     resolution: {integrity: sha512-gYBeFTZLu055D8Vv3cSPox/0iTPtkzxpLroSYYA7WXgRi31WCJ51Uyl8ZiPeUUjyvs2MBzK+S8v9JVUgHU/Sqw==}

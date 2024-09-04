@@ -1,11 +1,9 @@
 ---
-const homeUrl = import.meta.env.HOME_URL ?? '/';
+const baseURL = import.meta.env.BASE_URL;
 const { width } = Astro.props;
-
-// console.log(siteUrl);
 
 ---
 
-<a href={homeUrl} class={`${width} block`} data-astro-prefetch="hover" >
-    <img src={`${homeUrl}img/logos/logo.svg`} alt="" loading='lazy' decoding='async' />
+<a href={baseURL} class={`${width} block`} data-astro-prefetch="hover" >
+    <img src={`${baseURL}/img/logos/logo.svg`} alt="" loading='lazy' decoding='async' />
 </a>
