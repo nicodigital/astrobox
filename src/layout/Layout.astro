@@ -14,6 +14,7 @@ import Seo from "@/components/Seo.astro";
 // import getSlug from '@/js/getSlug'
 
 const siteURL = import.meta.env.SITE;
+const baseURL = import.meta.env.BASE_URL;
 
 const {
   title = "Título de 65 caracteres",
@@ -60,6 +61,8 @@ if( currPage === '' ){
     <ViewTransitions />
   </head>
   <body id="top" data-page={dataPage} data-scroll="top" >
+    
+    <script> import "@/js/globals";</script>
 
     {
       currPage !== "gracias" &&  <Header />
@@ -77,7 +80,5 @@ if( currPage === '' ){
       <h2 class="h1 text-center">Este es el mejor modal del mundo!</h2>
     </Modal>
 
-    <script> import "@/js/globals";</script>
-    
   </body>
 </html>
